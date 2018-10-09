@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://primefaces.org/ui">
+      
+      
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>   <!-- Collapse working bcoz of this with jsf h:inputText....check dis link https://stackoverflow.com/questions/26430908/why-doesnt-bootstraps-panel-collapse-work-with-jsf    -->
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> <!-- Collapse working bcoz of this with jsf h:inputText -->
+<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> <!-- scroll on click -->
+
+<!-- Calender libraries check dis link https://www.journaldev.com/3088/primefaces-calendar-component-example-tutorial#getting-started-with-calendar 
+<title>Calendar</title>
+		<script name="jquery/jquery.js" library="primefaces" type=""></script>
+
+
+-->
+
+
+<script>
+$(document).ready(function(){
+    $(".input2").focus(function(){
+        $(this).css("background-color", "#FFFFE0");
+    });
+    $(".input2").blur(function(){
+        $(this).css("background-color", "#f9f9f9");
+    });
+});
+
+</script>
+
+<!--  
+<script> src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#click").click(function(){
+        $(".vinod").scrollTop(100);
+    });
+});
+</script>
+-->
+
+
+
+
+
+
+
+
+
+<div id="vinod.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+
+
+<style>
+
+
+
+
+
+.vinod{
+
+
+overflow:auto;
+    height:416px;
+    overflow-x: hidden;<!--to hide horizontal scroll bar -->
+    
+   
+    
+}
+
+body {
+   background-image: url("resources/images/agri345.jpg");
+   background-color: #cccccc;
+}
+
+
+.border_class_css{
+					
+			        
+				
+ background-color:#f9f9f9;
+ margin-right:20px;
+  
+  
+  border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+  font-family: roboto;
+   margin-bottom:40px;
+   border: .7px solid rgba(0, 0, 0, 0.2);
+	}				
+					
+</style>
+
+
+</h:head> 
+<h:body   > 
+
+
+
+
+<div class="container_fluid  " >
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="row col-sm-7" >
+<h1 style="font-size: 45px;margin-top:5px;">&nbsp;&nbsp;<strong>Taikinys Value Solutions Pvt Ltd</strong></h1>
+<!--  <img  src="resources/images/agri3.jpg" style="margin-left:10px;" class="img-thumbnail img-responsive" alt="Cinque Terre" > </img> -->
+<p  style="font-size: 20px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+
+-Agro Manpower Solutions for your needs<br/>
+
+&nbsp;&nbsp;
+</p>
+
+
+
+<ul  style="font-size: 15px;padding:13px;text-align:justify;margin-left:10px " class="text-success">  <li><strong>Though contribution of agriculture 
+to GDP has reduced to about 16%, however,
+ the share of population dependent on agriculture is 
+ still significant and largest (> 50%). </strong>
+      </li> 
+
+<li><strong>The key stake holder,
+  i.e. the farmer, is still dependent on various players in the
+   agriculture/rural space (government machinery, agri-input companies, 
+   other players) for his day to day advisory and guidance on
+    crop cultivation and other agri related information needs.</strong></li>
+    
+    
+      
+       <li><strong> Similarly, the “field agronomists” also feel
+        that they do not get fair value / recognition for their efforts.
+         Therefore, there is need gap at the last mile connectivity around
+          “Field Agronomist” and all associated activities. 
+          To address this gap, following business opportunities have been identified.  </strong> </li>
+ </ul>
+</div>
+
+
+<div class="row col-sm-4 col-xs-12 border_class_css pull-right  " >
+
+<center><h1 >Register</h1></center>
+
+<h:form  class="form-horizontal " id="myform">
+
+<!-- **************************************************************************** -->
+  <div class="row form-group col-sm-12">
+  
+        
+        <div class="col-sm-12">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter First Name" id="first_name"    />
+    </div>
+    
+  
+    </div>
+ 
+    <!-- ********************************************************************************** -->
+
+
+<!-- **************************************************************************** -->
+  <div class="row form-group col-sm-12">
+  
+        
+        <div class="col-sm-12">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter Last Name" id="last_name"    />
+    </div>
+    
+  
+    </div>
+ 
+    <!-- ********************************************************************************** -->
+    
+    <!-- **************************************************************************** -->
+  <div class="row form-group col-sm-12">
+  
+        
+        <div class="col-sm-12">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter Mobile Number" id="mobile_number"    />
+    </div>
+    
+  
+    </div>
+ 
+    <!-- ********************************************************************************** -->
+
+<!-- **************************************************************************** -->
+  <div class="row form-group col-sm-12">
+  
+        
+        <div class="col-sm-12">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter Email address" id="emailId"    />
+    </div>
+    
+  
+    </div>
+ 
+    <!-- ********************************************************************************** -->
+ <div class="row form-group col-sm-12">
+  
+        
+        <div class="col-sm-12 ">
+        <h:inputSecret class="form-control input2" 
+                a:placeholder="Enter Password" id="password"    />
+    </div>
+    
+  
+    </div>
+<!-- ********************************************************************************************** -->
+
+
+ <div class="row form-group col-sm-12">
+  
+        
+        <div class="col-sm-12">
+        <h:inputSecret class="form-control input2" 
+                a:placeholder="Confirm Password" id="confirmPassword"    />
+    </div>
+    
+  
+    </div>
+<!-- ************************************************************************************************ -->
+
+
+<div class="row form-group col-sm-12" >
+
+<div class="col-sm-3"> </div>
+<div class="col-sm-6 ">
+    <h:commandButton  style="margin-top:5px;" class="btn fontsize btn-success btn-block"  value="Submit"   />
+   </div>
+  
+  <div class="col-sm-3"> </div> 
+
+</div>
+
+
+
+</h:form>
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</h:body> 
+
+
+</html>

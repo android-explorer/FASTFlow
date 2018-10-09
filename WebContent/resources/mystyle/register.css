@@ -1,0 +1,38 @@
+@CHARSET "ISO-8859-1";
+
+.registerfield{
+	
+	padding: 15px;
+   width: 100% !important;
+
+
+  border-radius: 2px;
+
+  overflow: hidden;
+  font-family: roboto;
+padding-right:0px;
+
+}
+
+.registerfieldforinputboxlen{
+	
+	 padding-left: 10px;
+  max-width: 300px; 
+  width: 100% !important;
+  border-radius: 2px;
+
+  overflow: hidden;
+  font-family: roboto;
+padding-right:0px;
+
+}
+
+.registerfieldname{
+	color:#323232;
+	
+	
+  font-weight: lighter;
+}
+.errorMessage{
+	color:red;
+}

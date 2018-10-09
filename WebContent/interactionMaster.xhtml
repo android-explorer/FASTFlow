@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://primefaces.org/ui">
+  
+      
+      <h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+   <meta name="google-signin-client_id" content="389846893349-letqvi6ni3q3krkmaqr061s7pq0pcs87.apps.googleusercontent.com"/>
+ <script src="https://apis.google.com/js/platform.js"  ></script>
+<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+<script type="text/javascript" src="resources/js/jquery.js"/>
+<title>Interaction</title>
+
+
+<script>
+$(document).ready(function(){
+    $(".input2").focus(function(){
+        $(this).css("background-color", "#FFFFE0");
+    });
+    $(".input2").blur(function(){
+        $(this).css("background-color", "#f9f9f9");
+    });
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<div id="bhavna.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+
+
+<style>
+
+body {
+   background-image: url("resources/images/noticias_1476901608.jpg");
+    background-repeat: no-repeat;
+
+}
+
+
+
+.bhavna{
+
+
+overflow:auto;
+    height:300px;
+   
+    overflow-x: hidden;
+ 
+   
+    
+}
+
+
+
+
+.border_class_css{
+background-color:#fff;
+  margin: 0 auto;
+   border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+  font-family: roboto;
+   
+   border: .7px solid rgba(0, 0, 0, 0.2);
+	}				
+					
+</style>
+
+
+
+<style type="text/css">
+.ui-growl {
+
+top:60px;
+Right:20px;
+width:301px;
+
+}
+</style>
+
+
+
+
+
+</h:head> 
+<h:body  style="background-color:#f9f9f9;margin-top:40px;"> 
+
+<div class="container  ">
+
+<div id="indexheader">
+<ui:insert name="indexheader">
+<ui:include src="navBar.xhtml" />
+</ui:insert>
+</div>
+
+<br></br><br></br><br></br>
+<div class="row col-sm-2">
+
+
+
+</div>
+
+
+<div class="row ">
+
+<div class="col-sm-9  border_class_css "  >
+				<p:growl id="messages" />
+					<h1><center>Farmer Interactions</center> </h1>
+				  <h:form  class="form-horizontal " id="myform">
+
+<p:focus context="myform" closable="false" />
+		
+				  
+				  
+   <div class="row form-group">
+
+</div>
+   <hr style="color:blue;margin-top:-2px;"></hr>
+
+<div class="bhavna" id="bha">
+
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+<h:outputLabel  for="FieldDealerName">Field Dealer Name:</h:outputLabel>
+</div>
+<div class="col-sm-7">
+ <h:inputText class="form-control input2"   value="#{intMaster1.fieldDealerName}" 
+                a:placeholder="Enter Field Dealer Name"  id="FieldDealerName"     />
+ </div>
+ </div>
+ <div class="row form-group">
+<div class="col-sm-3 control-label">
+<h:outputLabel  for="FieldAgronomistName">Field Agronomist Name:</h:outputLabel>
+</div>
+<div class="col-sm-7">
+ <h:inputText class="form-control input2"  value="#{intMaster1.fieldAgronomistName}"  
+                a:placeholder="Enter Field Agronomist  Name"  id="FieldAgronomistName"     />
+ </div>
+ </div>
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+<h:outputLabel  for="FieldCustomerName">Customer Name: </h:outputLabel>
+</div>
+<div class="col-sm-7">
+ <h:inputText class="form-control input2"   value="#{intMaster1.customerName}" 
+                a:placeholder="Enter Customer Name"  id="FieldCustomerName"     />
+ </div>
+ </div>
+ 
+ <div class="row form-group">
+<div class="col-sm-3 control-label">
+<h:outputLabel  for="action_point">Action Point: </h:outputLabel>
+</div>
+<div class="col-sm-7">
+ <h:inputTextarea class="form-control input2"  cols="8" rows="8"
+                a:placeholder="Enter Action Details"  id="action_point"     />
+ </div>
+ </div>
+ 
+ 
+ 
+ 
+  <div class="row form-group">
+<div class="col-sm-3 control-label">
+<h:outputLabel  for="action_point">Due Date: </h:outputLabel>
+</div>
+<div class="col-sm-7">
+<p:calendar id="completiondate"  p:placeholder="DD-MM-YYYY" 
+ style=" border: 0;" pattern="dd-MM-yyyy" mask="true" />
+ </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+<h:outputLabel  for="FieldInteractionDetails">Interaction Details: </h:outputLabel>
+</div>
+<div class="col-sm-7">
+ <h:inputTextarea cols="8" rows="8" class="form-control input2"   value="#{intMaster1.interactionDetails}"
+                a:placeholder="Enter Interaction Details"  id="FieldInteractionDetails"     />
+                
+               
+                
+ </div>
+ </div>
+ 
+ 
+ 
+ <div class="row form-group"> <!-- Nested row ################# -->
+<div class="col-sm-3 control-label">
+<h:outputLabel for="status">Stage:<h:outputText value=" " ></h:outputText></h:outputLabel> 
+<br/>
+</div>
+<div class="col-sm-2">
+<h:selectOneMenu class="form-control input2" >
+<f:selectItem itemLabel="Select " itemValue="#{null}" ></f:selectItem>
+<f:selectItem itemValue="Stage 1" itemLabel="Stage 1" />
+<f:selectItem itemValue="Stage 2" itemLabel="Stage 2" />	
+</h:selectOneMenu> 
+</div>
+
+</div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+    <div class="row form-group">
+    
+    <div class="col-sm-3 control-label">
+   
+      <h:outputLabel for="status">Status:<h:outputText value="  " ></h:outputText></h:outputLabel>  
+ 
+  
+  </div>
+  <div class="col-sm-2">
+     <h:selectOneMenu   id="status"  class="form-control"   >
+  
+   	<f:selectItem itemValue="Active" itemLabel="Active" />
+   	<f:selectItem itemValue="Inactive" itemLabel="Inactive" />
+  </h:selectOneMenu> 
+
+
+</div>
+    
+    <div class="col-sm-2 control-label">
+      <h:outputLabel  for="email">Attach file:  
+      <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Attachfile." 
+></span></h:outputLabel></div><p:fileUpload  style="margin-top:4px;" mode="simple"/>
+    
+    </div>
+    
+       <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField1">Extra Field 1: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Extra Field Text" id="extraField1" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField2">Extra Field 2: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Extra Field Text" id="extraField2" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField3">Extra Field 3: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Extra Field Number" id="extraField3" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extra_date1">Extra Field 4: </h:outputLabel>
+       </div>
+       <div class="col-sm-2">
+        <p:calendar id="extra_date1"  p:placeholder="DD-MM-YYYY" 
+ style=" border: 0;" pattern="dd-MM-yyyy" mask="true" />
+      </div>   	 
+     
+    </div> 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </div>
+ <hr></hr>
+ <div class="row col-sm-7 col-sm-offset-3   ">
+ 
+   <div class="col-sm-5 col-xs-6 control-label">
+    <h:commandButton  style="margin-bottom:13px"  class="btn fontsize btn-success btn-block" action="#{intMaster1.submit()}"   value="Register"   />
+   </div>
+   
+   <div class="col-sm-5 col-xs-6 control-label">
+    <h:commandButton  style="margin-bottom:13px" class="btn fontsize btn-primary btn-block"  action="#{intMaster1.reset()}" value="Reset"   />
+   </div>
+   </div>		
+</h:form>
+<br/>
+			</div>		
+			
+
+ 
+
+    
+     
+     		
+			
+			
+			
+			
+			
+			
+</div>
+</div>
+
+
+  	<div style="padding:0px;">
+<h:form style="background-color:white;">
+		<p:dataTable id="meraTable" value="#{intMaster1.listObj2}" var="mobile" border="2" resizableColumns="true" 
+			cellspacing="1" cellpadding="1"   
+			editable="true" editMode="cell" 
+reflow="true" scrollable="true" scrollHeight="250" 
+class="table table-striped table-hover table-bordered" style="margin-top:20px;" 
+ paginator="true" rows="5" rowsPerPageTemplate="5,10,15" 
+paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+>
+			
+			
+			
+			
+			
+			
+			<f:facet name="header">
+<div class="row" style="margin: -3px;">
+
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+<span style="font-size:22px;">Manage Interaction Master Data</span>
+</div> 
+
+<div class="col-sm-2 pull-right" style="margin-right: 20px">
+
+<h:commandLink id="excel">
+<img src="resources/images/Excel.png" class="img-responsive pull-right " alt="Excel" style="width:35px;"></img>
+<p:dataExporter type="xls" target="meraTable" fileName="Prudential&nbsp;Prudential&nbsp;List"  />
+</h:commandLink>
+
+<h:commandLink id="pdf" >
+<img src="resources/images/pdf.png" class="img-responsive pull-right" alt="pdf" style="width:35px;"></img>
+<p:dataExporter type="pdf" target="meraTable" fileName="Prudential&nbsp;Orgmaster&nbsp;List" />
+</h:commandLink>	
+</div>
+
+</div>
+</f:facet> 
+			
+			
+			
+			
+			
+			
+			<p:column filterBy="#{mobile.fieldDealerName}" sortBy="#{mobile.fieldDealerName}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" headerText="Field Dealer Name" >
+               <h:outputText value="#{mobile.fieldDealerName}" />
+             </p:column>
+
+			
+			<p:column  headerText="Field Agronomist Name" filterBy="#{mobile.fieldAgronomistName}" sortBy="#{mobile.fieldAgronomistName}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.fieldAgronomistName}" />
+             </p:column>
+                
+                <p:column  headerText="Customer Name" filterBy="#{mobile.customerName}" sortBy="#{mobile.customerName}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.customerName}" />
+             </p:column>
+                
+                
+               <p:column  headerText="Interaction Details" filterBy="#{mobile.interactionDetails}" sortBy="#{mobile.interactionDetails}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.interactionDetails}" />
+             </p:column>
+             
+             
+                    
+                    </p:dataTable>
+                    
+                    
+                    </h:form>
+       </div>
+
+
+
+
+ 
+
+
+
+	
+</h:body>
+</html>

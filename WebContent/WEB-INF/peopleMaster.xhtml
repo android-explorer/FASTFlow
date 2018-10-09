@@ -1,0 +1,993 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://primefaces.org/ui">
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>   <!-- Collapse working bcoz of this with jsf h:inputText....check dis link https://stackoverflow.com/questions/26430908/why-doesnt-bootstraps-panel-collapse-work-with-jsf    -->
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> <!-- Collapse working bcoz of this with jsf h:inputText -->
+<link rel="stylesheet" href="resource/css/bootstrap.css"/>
+<script type="text/javascript" src="resource/js/bootstrap.js"/>
+<script type="text/javascript" src="resource/js/jquery11.js"/>
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<!-- Calender libraries check dis link https://www.journaldev.com/3088/primefaces-calendar-component-example-tutorial#getting-started-with-calendar 
+<title>Calendar</title>
+		<script name="jquery/jquery.js" library="primefaces" type=""></script>
+
+
+-->
+
+
+<div id="vinod.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+
+
+<style>
+
+.vinu{
+ position: sticky; top: 10px;
+
+
+
+}
+
+
+
+.border_class_css{
+					
+			        
+				
+ background-color:#fff;
+    margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  font-family: roboto;
+   margin-bottom:40px;
+   border: .7px solid rgba(0, 0, 0, 0.2);
+				}	
+					
+</style>
+
+
+
+
+
+
+</h:head> 
+<body style="background-color:#f9f9f9;"> 
+<div class="container ">
+  <br/>
+
+<!-- ****************************************************************************************************** -->
+
+ <div class="row col-sm-2">
+ 
+ </div>
+
+
+
+<div class="row">
+ <div class=" col-sm-9 border_class_css"> <!-- Main Row ************************************* -->
+ <center><h1>Register New Person</h1></center>
+
+ 
+  <h:form class="form-horizontal ">
+
+ <!-- ################################################################################################################# -->
+   <div class="form-group  ">
+   <div class="row col-sm-7 col-sm-offset-3 control-label vinu"> <!-- Nested row ################# -->
+   
+     <div class="col-sm-6 col-xs-6">
+    <h:commandButton style="margin-bottom:8px;margin-top:0px;" class="btn btn-success btn-block vinu "  value="Save" type="submit" action="#{user.goLoginPage}" />
+   </div>
+   
+   <div class="col-sm-6 col-xs-6">
+    <h:commandButton style="margin-bottom:8px;margin-top:0px;" class="btn btn-primary btn-block vinu "  value="Cancel" type="submit" action="#{user.goLoginPage}" />
+   </div>
+   
+   
+   
+   
+   </div> <!-- Nested row ################# -->
+   </div>
+
+
+
+<!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+     
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="first_name">Name: </h:outputLabel>
+       </div>
+       
+        
+       <div class="col-sm-7 ">
+      <div class="row">
+       <div class="col-xs-4">
+     <h:selectOneMenu   style="margin-top:1px;"   class="form-control"    value="#{user.favCoffee1}">
+  
+  <f:selectItem itemValue="Salutation" itemLabel="Salutation" />
+  <f:selectItem itemValue="Mr." itemLabel="Mr." />
+   	<f:selectItem itemValue="Ms." itemLabel="Ms." />
+  </h:selectOneMenu> 
+  </div>
+  
+        <div class="col-xs-4 " style="padding:0;margin-left:-14px;" >
+        <h:inputText class="form-control"  
+                a:placeholder="First Name" id="first_name" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+       <div class="col-xs-4 " style="padding:0;margin-left:1px;">
+        <h:inputText class="form-control"  
+                a:placeholder="Last Name" id="last_name" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+      
+       </div>
+       </div>
+    </div>              <!-- Nested row ################# -->
+
+
+
+<!-- ################################################################################################################# --> 
+
+    <div class="row form-group"> <!-- Nested row ################# -->
+      <div class="col-sm-3 control-label">
+        <h:outputLabel  for="org_id2">Organization Id: </h:outputLabel>
+      </div>
+      <div class="col-sm-7">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Organization Id" id="org_id2" value="Col100001" disabled="true" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+      </div>
+    </div>              <!-- Nested row ################# -->
+<!-- ################################################################################################################# --> 
+
+
+      <div class="row form-group"> <!-- Nested row ################# -->
+      <div class="col-sm-3 control-label">
+        <h:outputLabel  for="people_id">People Id: </h:outputLabel>
+      </div>
+      <div class="col-sm-7">
+        <h:inputText class="form-control" 
+                a:placeholder="People Id will be generated when the record has been saved." id="people_id"  disabled="true" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+      </div>
+    </div>              <!-- Nested row ################# -->
+ 
+ 
+   <!-- ################################################################################################################# --> 
+     
+       
+ <!--     <div class="row form-group">  Nested row ################# 
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="salutation">Salutation: </h:outputLabel>
+       </div>
+       <div class="col-sm-8">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Salutation" id="salutation" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>               Nested row ################# 
+ --> 
+
+  
+
+    <!-- ################################################################################################################# --> 
+     
+     <!--   
+      <div class="row form-group">  Nested row ################# 
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="last_name">Last Name: </h:outputLabel>
+       </div>
+       <div class="col-sm-8">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Last Name" id="last_name" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              Nested row #################   --> 
+
+  
+    <!-- ################################################################################################################# --> 
+     
+       
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="Employee_email_id"><span style="color:red; width:100px" >*</span>Employee Email Id: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control" 
+                a:placeholder="Eg. abc@xyz.com" id="Employee_email_id" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required"><f:validateRegex	pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" /> </h:inputText>
+       </div>
+    </div>              <!-- Nested row ################# -->
+     <!-- ################################################################################################################# --> 
+    
+     <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="employee_number">Employee Number: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Enter Employee Number" id="employee_number" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+     
+         <!-- ################################################################################################################# --> 
+     
+       
+     
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="department">Department: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Department " id="department" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+         <!-- ################################################################################################################# --> 
+         
+         
+            
+      <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="telephone">Telephone: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Eg. (609) 603-9010" id="telephone" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+         
+      <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="mobile_phone_number">Mobile: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+         <div class="row" >
+          <div class="col-sm-4 col-xs-6" >
+            <h:selectOneMenu    style="margin-top:1px;"   class="form-control"    value="#{user.favCoffee1}">
+   <f:selectItem itemLabel="Select Country " itemValue="" ></f:selectItem>
+            <f:selectItem itemValue="297" itemLabel="ABW +297"></f:selectItem>
+<f:selectItem itemValue="93" itemLabel="AFG +93"></f:selectItem>
+<f:selectItem itemValue="244" itemLabel="AGO +244"></f:selectItem>
+<f:selectItem itemValue="1264" itemLabel="AIA +1264"></f:selectItem>
+<f:selectItem itemValue="358" itemLabel="ALA +358"></f:selectItem>
+<f:selectItem itemValue="355" itemLabel="ALB +355"></f:selectItem>
+<f:selectItem itemValue="376" itemLabel="AND +376"></f:selectItem>
+<f:selectItem itemValue="599" itemLabel="ANT +599"></f:selectItem>
+<f:selectItem itemValue="54" itemLabel="ARG +54"> </f:selectItem>
+<f:selectItem itemValue="374" itemLabel="ARM +374"></f:selectItem>
+<f:selectItem itemValue="1684" itemLabel="ASM +1684"></f:selectItem>
+<f:selectItem itemValue="672" itemLabel="ATA +672"></f:selectItem>
+<f:selectItem itemValue="260" itemLabel="ATF +260"></f:selectItem>
+<f:selectItem itemValue="1268" itemLabel="ATG +1268"></f:selectItem>
+<f:selectItem itemValue="61" itemLabel="AUS +61"></f:selectItem>
+<f:selectItem itemValue="43" itemLabel="AUT +43"></f:selectItem>
+<f:selectItem itemValue="994" itemLabel="AZE +994"></f:selectItem>
+<f:selectItem itemValue="257" itemLabel="BDI +257"></f:selectItem>
+<f:selectItem itemValue="32" itemLabel="BEL +32"></f:selectItem>
+<f:selectItem itemValue="229" itemLabel="BEN +229"></f:selectItem>
+<f:selectItem itemValue="226" itemLabel="BFA +226"></f:selectItem>
+<f:selectItem itemValue="880" itemLabel="BGD +880"></f:selectItem>
+<f:selectItem itemValue="359" itemLabel="BGR +359"></f:selectItem>
+<f:selectItem itemValue="973" itemLabel="BHR +973"></f:selectItem>
+<f:selectItem itemValue="1242" itemLabel="BHS +1242"></f:selectItem>
+<f:selectItem itemValue="387" itemLabel="BIH +387"></f:selectItem>
+<f:selectItem itemValue="375" itemLabel="BLR +375"></f:selectItem>
+<f:selectItem itemValue="501" itemLabel="BLZ +501"></f:selectItem>
+<f:selectItem itemValue="1441" itemLabel="BMU +1441"></f:selectItem>
+<f:selectItem itemValue="591" itemLabel ="BOL +591"></f:selectItem>
+<f:selectItem itemValue="55" itemLabel="BRA +55"></f:selectItem>
+<f:selectItem itemValue="1246" itemLabel="BRB +1246"></f:selectItem>
+<f:selectItem itemValue="673" itemLabel="BRN +673"></f:selectItem>
+<f:selectItem itemValue="975" itemLabel="BTN +975"></f:selectItem>
+<f:selectItem itemValue="267" itemLabel="BWA +267"></f:selectItem>
+<f:selectItem itemValue="236" itemLabel="CAF +236"></f:selectItem>
+<f:selectItem itemValue="1" itemLabel="CAN +1"></f:selectItem>
+<f:selectItem itemValue="41" itemLabel="CHE +41"></f:selectItem>
+<f:selectItem itemValue="56" itemLabel="CHL +56"></f:selectItem>
+<f:selectItem itemValue="86" itemLabel="CHN +86"></f:selectItem>
+<f:selectItem itemValue="225" itemLabel="CIV +225"></f:selectItem>
+<f:selectItem itemValue="237" itemLabel="CMR +237"></f:selectItem>
+<f:selectItem itemValue="243" itemLabel="COD +243"></f:selectItem>
+<f:selectItem itemValue="242" itemLabel="COG +242"></f:selectItem>
+<f:selectItem itemValue="682" itemLabel="COK +682"></f:selectItem>
+<f:selectItem itemValue="57" itemLabel="COL +57"></f:selectItem>
+<f:selectItem itemValue="269" itemLabel="COM +269"></f:selectItem>
+<f:selectItem itemValue="238" itemLabel="CPV +238"></f:selectItem>
+<f:selectItem itemValue="506" itemLabel="CRI +506"></f:selectItem>
+<f:selectItem itemValue="53" itemLabel="CUB +53"></f:selectItem>
+<f:selectItem itemValue="1345" itemLabel="CYM +1345"></f:selectItem>
+<f:selectItem itemValue="357" itemLabel="CYP +357"></f:selectItem>
+<f:selectItem itemValue="420" itemLabel="CZE +420"></f:selectItem>
+<f:selectItem itemValue="49" itemLabel="DEU +49"></f:selectItem>
+<f:selectItem itemValue="253" itemLabel="DJI +253"></f:selectItem>
+<f:selectItem itemValue="1767" itemLabel="DMA +1767"></f:selectItem>
+<f:selectItem itemValue="45" itemLabel="DNK +45"></f:selectItem>
+<f:selectItem itemValue="1809" itemLabel="DOM +1809"></f:selectItem>
+<f:selectItem itemValue="213" itemLabel="DZA +213"></f:selectItem>
+<f:selectItem itemValue="593" itemLabel="ECU +593"></f:selectItem>
+<f:selectItem itemValue="20" itemLabel="EGY +20"></f:selectItem>
+<f:selectItem itemValue="291" itemLabel="ERI +291"></f:selectItem>
+<f:selectItem itemValue="212" itemLabel="ESH +212"></f:selectItem>
+<f:selectItem itemValue="34" itemLabel="ESP +34"></f:selectItem>
+<f:selectItem itemValue="372" itemLabel="EST +372"></f:selectItem>
+<f:selectItem itemValue="251" itemLabel="ETH +251"></f:selectItem>
+<f:selectItem itemValue="358" itemLabel="FIN +358"></f:selectItem>
+<f:selectItem itemValue="679" itemLabel="FJI +679"></f:selectItem>
+<f:selectItem itemValue="500" itemLabel="FLK +500"></f:selectItem>
+<f:selectItem itemValue="33" itemLabel="FRA +33"></f:selectItem>
+<f:selectItem itemValue="298" itemLabel="FRO +298"></f:selectItem>
+<f:selectItem itemValue="691" itemLabel="FSM +691"></f:selectItem>
+<f:selectItem itemValue="241" itemLabel="GAB +241"></f:selectItem>
+<f:selectItem itemValue="44" itemLabel="GBR +44"></f:selectItem>
+<f:selectItem itemValue="995" itemLabel="GEO +995"></f:selectItem>
+<f:selectItem itemValue="233" itemLabel="GHA +233"></f:selectItem>
+<f:selectItem itemValue="350" itemLabel="GIB +350"></f:selectItem>
+<f:selectItem itemValue="224" itemLabel="GIN +224"></f:selectItem>
+<f:selectItem itemValue="590" itemLabel="GLP +590"></f:selectItem>
+<f:selectItem itemValue="220" itemLabel="GMB +220"></f:selectItem>
+<f:selectItem itemValue="245" itemLabel="GNB +245"></f:selectItem>
+<f:selectItem itemValue="240" itemLabel="GNQ +240"></f:selectItem>
+<f:selectItem itemValue="30" itemLabel="GRC +30"></f:selectItem>
+<f:selectItem itemValue="1473" itemLabel="GRD +1473"></f:selectItem>
+<f:selectItem itemValue="299" itemLabel="GRL +299"></f:selectItem>
+<f:selectItem itemValue="502" itemLabel="GTM +502"></f:selectItem>
+<f:selectItem itemValue="594" itemLabel="GUF +594"></f:selectItem>
+<f:selectItem itemValue="1671" itemLabel="GUM +1671"></f:selectItem>
+<f:selectItem itemValue="592" itemLabel="GUY +592"></f:selectItem>
+<f:selectItem itemValue="852" itemLabel="HKG +852"></f:selectItem>
+<f:selectItem itemValue="504" itemLabel="HND +504"></f:selectItem>
+<f:selectItem itemValue="385" itemLabel="HRV +385"></f:selectItem>
+<f:selectItem itemValue="509" itemLabel="HTI +509"></f:selectItem>
+<f:selectItem itemValue="36" itemLabel="HUN +36"></f:selectItem>
+<f:selectItem itemValue="62" itemLabel="IDN +62"></f:selectItem>
+<f:selectItem itemValue="91" selected="selected" itemLabel="IND +91"></f:selectItem>
+<f:selectItem itemValue="353" itemLabel="IRL +353"></f:selectItem>
+<f:selectItem itemValue="98" itemLabel="IRN +98"></f:selectItem>
+<f:selectItem itemValue="964" itemLabel="IRQ +964"></f:selectItem>
+<f:selectItem itemValue="354" itemLabel="ISL +354"></f:selectItem>
+<f:selectItem itemValue="972" itemLabel="ISR +972"></f:selectItem>
+<f:selectItem itemValue="39" itemLabel="ITA +39"></f:selectItem>
+<f:selectItem itemValue="1876" itemLabel="JAM +1876"></f:selectItem>
+<f:selectItem itemValue="962" itemLabel="JOR +962"></f:selectItem>
+<f:selectItem itemValue="81" itemLabel="JPN +81"></f:selectItem>
+<f:selectItem itemValue="7" itemLabel="KAZ +7"></f:selectItem>
+<f:selectItem itemValue="254" itemLabel="KEN +254"></f:selectItem>
+<f:selectItem itemValue="996" itemLabel="KGZ +996"></f:selectItem>
+<f:selectItem itemValue="855" itemLabel="KHM +855"></f:selectItem>
+<f:selectItem itemValue="686" itemLabel="KIR +686"></f:selectItem>
+<f:selectItem itemValue="1869" itemLabel="KNA +1869"></f:selectItem>
+<f:selectItem itemValue="82" itemLabel="KOR +82"></f:selectItem>
+<f:selectItem itemValue="965" itemLabel="KWT +965"></f:selectItem>
+<f:selectItem itemValue="856" itemLabel="LAO +856"></f:selectItem>
+<f:selectItem itemValue="961" itemLabel="LBN +961"></f:selectItem>
+<f:selectItem itemValue="231" itemLabel="LBR +231"></f:selectItem>
+<f:selectItem itemValue="218" itemLabel="LBY +218"></f:selectItem>
+<f:selectItem itemValue="1758" itemLabel="LCA +1758"></f:selectItem>
+<f:selectItem itemValue="423" itemLabel="LIE +423"></f:selectItem>
+<f:selectItem itemValue="94" itemLabel="LKA +94"></f:selectItem>
+<f:selectItem itemValue="266" itemLabel="LSO +266"></f:selectItem>
+<f:selectItem itemValue="370" itemLabel="LTU +370"></f:selectItem>
+<f:selectItem itemValue="352" itemLabel="LUX +352"></f:selectItem>
+<f:selectItem itemValue="371" itemLabel="LVA +371"></f:selectItem>
+<f:selectItem itemValue="853" itemLabel="MAC +853"></f:selectItem>
+<f:selectItem itemValue="212" itemLabel="MAR +212"></f:selectItem>
+<f:selectItem itemValue="377" itemLabel="MCO +377"></f:selectItem>
+<f:selectItem itemValue="373" itemLabel="MDA +373"></f:selectItem>
+<f:selectItem itemValue="261" itemLabel="MDG +261"></f:selectItem>
+<f:selectItem itemValue="960" itemLabel="MDV +960"></f:selectItem>
+<f:selectItem itemValue="52" itemLabel="MEX +52"></f:selectItem>
+<f:selectItem itemValue="692" itemLabel="MHL +692"></f:selectItem>
+<f:selectItem itemValue="389" itemLabel="MKD +389"></f:selectItem>
+<f:selectItem itemValue="223" itemLabel="MLI +223"></f:selectItem>
+<f:selectItem itemValue="356" itemLabel="MLT +356"></f:selectItem>
+<f:selectItem itemValue="95" itemLabel="MMR +95"></f:selectItem>
+<f:selectItem itemValue="382" itemLabel="MNE +382"></f:selectItem>
+<f:selectItem itemValue="976" itemLabel="MNG +976"></f:selectItem>
+<f:selectItem itemValue="1670" itemLabel="MNP +1670"></f:selectItem>
+<f:selectItem itemValue="258" itemLabel="MOZ +258"></f:selectItem>
+<f:selectItem itemValue="222" itemLabel="MRT +222"></f:selectItem>
+<f:selectItem itemValue="1664" itemLabel="MSR +1664"></f:selectItem>
+<f:selectItem itemValue="596" itemLabel="MTQ +596"></f:selectItem>
+<f:selectItem itemValue="230" itemLabel="MUS +230"></f:selectItem>
+<f:selectItem itemValue="265" itemLabel="MWI +265"></f:selectItem>
+<f:selectItem itemValue="60" itemLabel="MYS +60"></f:selectItem>
+<f:selectItem itemValue="264" itemLabel="NAM +264"></f:selectItem>
+<f:selectItem itemValue="687" itemLabel="NCL +687"></f:selectItem>
+<f:selectItem itemValue="227" itemLabel="NER +227"></f:selectItem>
+<f:selectItem itemValue="672" itemLabel="NFK +672"></f:selectItem>
+<f:selectItem itemValue="234" itemLabel="NGA +234"></f:selectItem>
+<f:selectItem itemValue="505" itemLabel="NIC +505"></f:selectItem>
+<f:selectItem itemValue="683" itemLabel="NIU +683"></f:selectItem>
+<f:selectItem itemValue="31" itemLabel="NLD +31"></f:selectItem>
+<f:selectItem itemValue="47" itemLabel="NOR +47"></f:selectItem>
+<f:selectItem itemValue="977" itemLabel="NPL +977"></f:selectItem>
+<f:selectItem itemValue="674" itemLabel="NRU +674"></f:selectItem>
+<f:selectItem itemValue="64" itemLabel="NZL +64"></f:selectItem>
+<f:selectItem itemValue="968" itemLabel="OMN +968"></f:selectItem>
+<f:selectItem itemValue="92" itemLabel="PAK +92"></f:selectItem>
+<f:selectItem itemValue="507" itemLabel="PAN +507"></f:selectItem>
+<f:selectItem itemValue="870" itemLabel="PCN +870"></f:selectItem>
+<f:selectItem itemValue="51" itemLabel="PER +51"></f:selectItem>
+<f:selectItem itemValue="63" itemLabel="PHL +63"></f:selectItem>
+<f:selectItem itemValue="680" itemLabel="PLW +680"></f:selectItem>
+<f:selectItem itemValue="675" itemLabel="PNG +675"></f:selectItem>
+<f:selectItem itemValue="48" itemLabel="POL +48"></f:selectItem>
+<f:selectItem itemValue="1787" itemLabel="PRI +1787"></f:selectItem>
+<f:selectItem itemValue="850" itemLabel="PRK +850"></f:selectItem>
+<f:selectItem itemValue="351" itemLabel="PRT +351"></f:selectItem>
+<f:selectItem itemValue="595" itemLabel="PRY +595"></f:selectItem>
+<f:selectItem itemValue="970" itemLabel="PSE +970"></f:selectItem>
+<f:selectItem itemValue="689" itemLabel="PYF +689"></f:selectItem>
+<f:selectItem itemValue="974" itemLabel="QAT +974"></f:selectItem>
+<f:selectItem itemValue="262" itemLabel="REU +262"></f:selectItem>
+<f:selectItem itemValue="40" itemLabel="ROM +40"></f:selectItem>
+<f:selectItem itemValue="40" itemLabel="ROU +40"></f:selectItem>
+<f:selectItem itemValue="70" itemLabel="RUS +70"></f:selectItem>
+<f:selectItem itemValue="250" itemLabel="RWA +250"></f:selectItem>
+<f:selectItem itemValue="966" itemLabel="SAU +966"></f:selectItem>
+<f:selectItem itemValue="249" itemLabel="SDN +249"></f:selectItem>
+<f:selectItem itemValue="221" itemLabel="SEN +221"></f:selectItem>
+<f:selectItem itemValue="65" itemLabel="SGP +65"></f:selectItem>
+<f:selectItem itemValue="290" itemLabel="SHN +290"></f:selectItem>
+<f:selectItem itemValue="47" itemLabel="SJM +47"></f:selectItem>
+<f:selectItem itemValue="677" itemLabel="SLB +677"></f:selectItem>
+<f:selectItem itemValue="232" itemLabel="SLE +232"></f:selectItem>
+<f:selectItem itemValue="503" itemLabel="SLV +503"></f:selectItem>
+<f:selectItem itemValue="378" itemLabel="SMR +378"></f:selectItem>
+<f:selectItem itemValue="252" itemLabel="SOM +252"></f:selectItem>
+<f:selectItem itemValue="508" itemLabel="SPM +508"></f:selectItem>
+<f:selectItem itemValue="381" itemLabel="SRB +381"></f:selectItem>
+<f:selectItem itemValue="239" itemLabel="STP +239"></f:selectItem>
+<f:selectItem itemValue="597" itemLabel="SUR +597"></f:selectItem>
+<f:selectItem itemValue="421" itemLabel="SVK +421"></f:selectItem>
+<f:selectItem itemValue="386" itemLabel="SVN +386"></f:selectItem>
+<f:selectItem itemValue="46" itemLabel="SWE +46"></f:selectItem>
+<f:selectItem itemValue="268" itemLabel="SWZ +268"></f:selectItem>
+<f:selectItem itemValue="248" itemLabel="SYC +248"></f:selectItem>
+<f:selectItem itemValue="963" itemLabel="SYR +963"></f:selectItem>
+<f:selectItem itemValue="1649" itemLabel="TCA +1649"></f:selectItem>
+<f:selectItem itemValue="235" itemLabel="TCD +235"></f:selectItem>
+<f:selectItem itemValue="228" itemLabel="TGO +228"></f:selectItem>
+<f:selectItem itemValue="66" itemLabel="THA +66"></f:selectItem>
+<f:selectItem itemValue="992" itemLabel="TJK +992"></f:selectItem>
+<f:selectItem itemValue="690" itemLabel="TKL +690"></f:selectItem>
+<f:selectItem itemValue="993" itemLabel="TKM +993"></f:selectItem>
+<f:selectItem itemValue="676" itemLabel="TON +676"></f:selectItem>
+<f:selectItem itemValue="1868" itemLabel="TTO +1868"></f:selectItem>
+<f:selectItem itemValue="216" itemLabel="TUN +216"></f:selectItem>
+<f:selectItem itemValue="90" itemLabel="TUR +90"></f:selectItem>
+<f:selectItem itemValue="688" itemLabel="TUV +688"></f:selectItem>
+<f:selectItem itemValue="886" itemLabel="TWN +886"></f:selectItem>
+<f:selectItem itemValue="255" itemLabel="TZA +255"></f:selectItem>
+<f:selectItem itemValue="971" itemLabel="UAE +971"></f:selectItem>
+<f:selectItem itemValue="256" itemLabel="UGA +256"></f:selectItem>
+<f:selectItem itemValue="380" itemLabel="UKR +380"></f:selectItem>
+<f:selectItem itemValue="598" itemLabel="URY +598"></f:selectItem>
+<f:selectItem itemValue="1" itemLabel="USA +1"></f:selectItem>
+<f:selectItem itemValue="998" itemLabel="UZB +998"></f:selectItem>
+<f:selectItem itemValue="39" itemLabel="VAT +39"></f:selectItem>
+<f:selectItem itemValue="1784" itemLabel="VCT +1784"></f:selectItem>
+<f:selectItem itemValue="58" itemLabel="VEN +58"></f:selectItem>
+<f:selectItem itemValue="1284" itemLabel="VGB +1284"></f:selectItem>
+<f:selectItem itemValue="92" itemLabel="VGB +92"></f:selectItem>
+<f:selectItem itemValue="1340" itemLabel="VIR +1340"></f:selectItem>
+<f:selectItem itemValue="84" itemLabel="VNM +84"></f:selectItem>
+<f:selectItem itemValue="678" itemLabel="VUT +678"></f:selectItem>
+<f:selectItem itemValue="681" itemLabel="WLF +681"></f:selectItem>
+<f:selectItem itemValue="684" itemLabel="WSM +684"></f:selectItem>
+<f:selectItem itemValue="967" itemLabel="YEM +967"></f:selectItem>
+<f:selectItem itemValue="27" itemLabel="ZAF +27"></f:selectItem>
+<f:selectItem itemValue="260" itemLabel="ZMB +260"></f:selectItem>
+<f:selectItem itemValue="263" itemLabel="ZWE +263"></f:selectItem>
+          	
+          	
+            </h:selectOneMenu> 
+  </div>
+  <div class="col-sm-8 col-xs-6" style="padding:0;margin-left:-12px;" >
+        <h:inputText style="padding:0;" class="form-control" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="   Eg. (646) 818-9894" id="mobile_phone_number" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+           </div>
+       </div>
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+       
+         <!-- ################################################################################################################# --> 
+     
+       
+       <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="alternate_mobile_phone_number">Alternate Mobile: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+         <div class="row" >
+          <div class="col-sm-4 col-xs-6" >
+            <h:selectOneMenu    style="margin-top:1px;"   class="form-control"    value="#{user.favCoffee1}">
+  
+           
+           <f:selectItem itemLabel="Select Country " itemValue="" ></f:selectItem>
+            <f:selectItem itemValue="297" itemLabel="ABW +297"></f:selectItem>
+<f:selectItem itemValue="93" itemLabel="AFG +93"></f:selectItem>
+<f:selectItem itemValue="244" itemLabel="AGO +244"></f:selectItem>
+<f:selectItem itemValue="1264" itemLabel="AIA +1264"></f:selectItem>
+<f:selectItem itemValue="358" itemLabel="ALA +358"></f:selectItem>
+<f:selectItem itemValue="355" itemLabel="ALB +355"></f:selectItem>
+<f:selectItem itemValue="376" itemLabel="AND +376"></f:selectItem>
+<f:selectItem itemValue="599" itemLabel="ANT +599"></f:selectItem>
+<f:selectItem itemValue="54" itemLabel="ARG +54"> </f:selectItem>
+<f:selectItem itemValue="374" itemLabel="ARM +374"></f:selectItem>
+<f:selectItem itemValue="1684" itemLabel="ASM +1684"></f:selectItem>
+<f:selectItem itemValue="672" itemLabel="ATA +672"></f:selectItem>
+<f:selectItem itemValue="260" itemLabel="ATF +260"></f:selectItem>
+<f:selectItem itemValue="1268" itemLabel="ATG +1268"></f:selectItem>
+<f:selectItem itemValue="61" itemLabel="AUS +61"></f:selectItem>
+<f:selectItem itemValue="43" itemLabel="AUT +43"></f:selectItem>
+<f:selectItem itemValue="994" itemLabel="AZE +994"></f:selectItem>
+<f:selectItem itemValue="257" itemLabel="BDI +257"></f:selectItem>
+<f:selectItem itemValue="32" itemLabel="BEL +32"></f:selectItem>
+<f:selectItem itemValue="229" itemLabel="BEN +229"></f:selectItem>
+<f:selectItem itemValue="226" itemLabel="BFA +226"></f:selectItem>
+<f:selectItem itemValue="880" itemLabel="BGD +880"></f:selectItem>
+<f:selectItem itemValue="359" itemLabel="BGR +359"></f:selectItem>
+<f:selectItem itemValue="973" itemLabel="BHR +973"></f:selectItem>
+<f:selectItem itemValue="1242" itemLabel="BHS +1242"></f:selectItem>
+<f:selectItem itemValue="387" itemLabel="BIH +387"></f:selectItem>
+<f:selectItem itemValue="375" itemLabel="BLR +375"></f:selectItem>
+<f:selectItem itemValue="501" itemLabel="BLZ +501"></f:selectItem>
+<f:selectItem itemValue="1441" itemLabel="BMU +1441"></f:selectItem>
+<f:selectItem itemValue="591" itemLabel ="BOL +591"></f:selectItem>
+<f:selectItem itemValue="55" itemLabel="BRA +55"></f:selectItem>
+<f:selectItem itemValue="1246" itemLabel="BRB +1246"></f:selectItem>
+<f:selectItem itemValue="673" itemLabel="BRN +673"></f:selectItem>
+<f:selectItem itemValue="975" itemLabel="BTN +975"></f:selectItem>
+<f:selectItem itemValue="267" itemLabel="BWA +267"></f:selectItem>
+<f:selectItem itemValue="236" itemLabel="CAF +236"></f:selectItem>
+<f:selectItem itemValue="1" itemLabel="CAN +1"></f:selectItem>
+<f:selectItem itemValue="41" itemLabel="CHE +41"></f:selectItem>
+<f:selectItem itemValue="56" itemLabel="CHL +56"></f:selectItem>
+<f:selectItem itemValue="86" itemLabel="CHN +86"></f:selectItem>
+<f:selectItem itemValue="225" itemLabel="CIV +225"></f:selectItem>
+<f:selectItem itemValue="237" itemLabel="CMR +237"></f:selectItem>
+<f:selectItem itemValue="243" itemLabel="COD +243"></f:selectItem>
+<f:selectItem itemValue="242" itemLabel="COG +242"></f:selectItem>
+<f:selectItem itemValue="682" itemLabel="COK +682"></f:selectItem>
+<f:selectItem itemValue="57" itemLabel="COL +57"></f:selectItem>
+<f:selectItem itemValue="269" itemLabel="COM +269"></f:selectItem>
+<f:selectItem itemValue="238" itemLabel="CPV +238"></f:selectItem>
+<f:selectItem itemValue="506" itemLabel="CRI +506"></f:selectItem>
+<f:selectItem itemValue="53" itemLabel="CUB +53"></f:selectItem>
+<f:selectItem itemValue="1345" itemLabel="CYM +1345"></f:selectItem>
+<f:selectItem itemValue="357" itemLabel="CYP +357"></f:selectItem>
+<f:selectItem itemValue="420" itemLabel="CZE +420"></f:selectItem>
+<f:selectItem itemValue="49" itemLabel="DEU +49"></f:selectItem>
+<f:selectItem itemValue="253" itemLabel="DJI +253"></f:selectItem>
+<f:selectItem itemValue="1767" itemLabel="DMA +1767"></f:selectItem>
+<f:selectItem itemValue="45" itemLabel="DNK +45"></f:selectItem>
+<f:selectItem itemValue="1809" itemLabel="DOM +1809"></f:selectItem>
+<f:selectItem itemValue="213" itemLabel="DZA +213"></f:selectItem>
+<f:selectItem itemValue="593" itemLabel="ECU +593"></f:selectItem>
+<f:selectItem itemValue="20" itemLabel="EGY +20"></f:selectItem>
+<f:selectItem itemValue="291" itemLabel="ERI +291"></f:selectItem>
+<f:selectItem itemValue="212" itemLabel="ESH +212"></f:selectItem>
+<f:selectItem itemValue="34" itemLabel="ESP +34"></f:selectItem>
+<f:selectItem itemValue="372" itemLabel="EST +372"></f:selectItem>
+<f:selectItem itemValue="251" itemLabel="ETH +251"></f:selectItem>
+<f:selectItem itemValue="358" itemLabel="FIN +358"></f:selectItem>
+<f:selectItem itemValue="679" itemLabel="FJI +679"></f:selectItem>
+<f:selectItem itemValue="500" itemLabel="FLK +500"></f:selectItem>
+<f:selectItem itemValue="33" itemLabel="FRA +33"></f:selectItem>
+<f:selectItem itemValue="298" itemLabel="FRO +298"></f:selectItem>
+<f:selectItem itemValue="691" itemLabel="FSM +691"></f:selectItem>
+<f:selectItem itemValue="241" itemLabel="GAB +241"></f:selectItem>
+<f:selectItem itemValue="44" itemLabel="GBR +44"></f:selectItem>
+<f:selectItem itemValue="995" itemLabel="GEO +995"></f:selectItem>
+<f:selectItem itemValue="233" itemLabel="GHA +233"></f:selectItem>
+<f:selectItem itemValue="350" itemLabel="GIB +350"></f:selectItem>
+<f:selectItem itemValue="224" itemLabel="GIN +224"></f:selectItem>
+<f:selectItem itemValue="590" itemLabel="GLP +590"></f:selectItem>
+<f:selectItem itemValue="220" itemLabel="GMB +220"></f:selectItem>
+<f:selectItem itemValue="245" itemLabel="GNB +245"></f:selectItem>
+<f:selectItem itemValue="240" itemLabel="GNQ +240"></f:selectItem>
+<f:selectItem itemValue="30" itemLabel="GRC +30"></f:selectItem>
+<f:selectItem itemValue="1473" itemLabel="GRD +1473"></f:selectItem>
+<f:selectItem itemValue="299" itemLabel="GRL +299"></f:selectItem>
+<f:selectItem itemValue="502" itemLabel="GTM +502"></f:selectItem>
+<f:selectItem itemValue="594" itemLabel="GUF +594"></f:selectItem>
+<f:selectItem itemValue="1671" itemLabel="GUM +1671"></f:selectItem>
+<f:selectItem itemValue="592" itemLabel="GUY +592"></f:selectItem>
+<f:selectItem itemValue="852" itemLabel="HKG +852"></f:selectItem>
+<f:selectItem itemValue="504" itemLabel="HND +504"></f:selectItem>
+<f:selectItem itemValue="385" itemLabel="HRV +385"></f:selectItem>
+<f:selectItem itemValue="509" itemLabel="HTI +509"></f:selectItem>
+<f:selectItem itemValue="36" itemLabel="HUN +36"></f:selectItem>
+<f:selectItem itemValue="62" itemLabel="IDN +62"></f:selectItem>
+<f:selectItem itemValue="91" selected="selected" itemLabel="IND +91"></f:selectItem>
+<f:selectItem itemValue="353" itemLabel="IRL +353"></f:selectItem>
+<f:selectItem itemValue="98" itemLabel="IRN +98"></f:selectItem>
+<f:selectItem itemValue="964" itemLabel="IRQ +964"></f:selectItem>
+<f:selectItem itemValue="354" itemLabel="ISL +354"></f:selectItem>
+<f:selectItem itemValue="972" itemLabel="ISR +972"></f:selectItem>
+<f:selectItem itemValue="39" itemLabel="ITA +39"></f:selectItem>
+<f:selectItem itemValue="1876" itemLabel="JAM +1876"></f:selectItem>
+<f:selectItem itemValue="962" itemLabel="JOR +962"></f:selectItem>
+<f:selectItem itemValue="81" itemLabel="JPN +81"></f:selectItem>
+<f:selectItem itemValue="7" itemLabel="KAZ +7"></f:selectItem>
+<f:selectItem itemValue="254" itemLabel="KEN +254"></f:selectItem>
+<f:selectItem itemValue="996" itemLabel="KGZ +996"></f:selectItem>
+<f:selectItem itemValue="855" itemLabel="KHM +855"></f:selectItem>
+<f:selectItem itemValue="686" itemLabel="KIR +686"></f:selectItem>
+<f:selectItem itemValue="1869" itemLabel="KNA +1869"></f:selectItem>
+<f:selectItem itemValue="82" itemLabel="KOR +82"></f:selectItem>
+<f:selectItem itemValue="965" itemLabel="KWT +965"></f:selectItem>
+<f:selectItem itemValue="856" itemLabel="LAO +856"></f:selectItem>
+<f:selectItem itemValue="961" itemLabel="LBN +961"></f:selectItem>
+<f:selectItem itemValue="231" itemLabel="LBR +231"></f:selectItem>
+<f:selectItem itemValue="218" itemLabel="LBY +218"></f:selectItem>
+<f:selectItem itemValue="1758" itemLabel="LCA +1758"></f:selectItem>
+<f:selectItem itemValue="423" itemLabel="LIE +423"></f:selectItem>
+<f:selectItem itemValue="94" itemLabel="LKA +94"></f:selectItem>
+<f:selectItem itemValue="266" itemLabel="LSO +266"></f:selectItem>
+<f:selectItem itemValue="370" itemLabel="LTU +370"></f:selectItem>
+<f:selectItem itemValue="352" itemLabel="LUX +352"></f:selectItem>
+<f:selectItem itemValue="371" itemLabel="LVA +371"></f:selectItem>
+<f:selectItem itemValue="853" itemLabel="MAC +853"></f:selectItem>
+<f:selectItem itemValue="212" itemLabel="MAR +212"></f:selectItem>
+<f:selectItem itemValue="377" itemLabel="MCO +377"></f:selectItem>
+<f:selectItem itemValue="373" itemLabel="MDA +373"></f:selectItem>
+<f:selectItem itemValue="261" itemLabel="MDG +261"></f:selectItem>
+<f:selectItem itemValue="960" itemLabel="MDV +960"></f:selectItem>
+<f:selectItem itemValue="52" itemLabel="MEX +52"></f:selectItem>
+<f:selectItem itemValue="692" itemLabel="MHL +692"></f:selectItem>
+<f:selectItem itemValue="389" itemLabel="MKD +389"></f:selectItem>
+<f:selectItem itemValue="223" itemLabel="MLI +223"></f:selectItem>
+<f:selectItem itemValue="356" itemLabel="MLT +356"></f:selectItem>
+<f:selectItem itemValue="95" itemLabel="MMR +95"></f:selectItem>
+<f:selectItem itemValue="382" itemLabel="MNE +382"></f:selectItem>
+<f:selectItem itemValue="976" itemLabel="MNG +976"></f:selectItem>
+<f:selectItem itemValue="1670" itemLabel="MNP +1670"></f:selectItem>
+<f:selectItem itemValue="258" itemLabel="MOZ +258"></f:selectItem>
+<f:selectItem itemValue="222" itemLabel="MRT +222"></f:selectItem>
+<f:selectItem itemValue="1664" itemLabel="MSR +1664"></f:selectItem>
+<f:selectItem itemValue="596" itemLabel="MTQ +596"></f:selectItem>
+<f:selectItem itemValue="230" itemLabel="MUS +230"></f:selectItem>
+<f:selectItem itemValue="265" itemLabel="MWI +265"></f:selectItem>
+<f:selectItem itemValue="60" itemLabel="MYS +60"></f:selectItem>
+<f:selectItem itemValue="264" itemLabel="NAM +264"></f:selectItem>
+<f:selectItem itemValue="687" itemLabel="NCL +687"></f:selectItem>
+<f:selectItem itemValue="227" itemLabel="NER +227"></f:selectItem>
+<f:selectItem itemValue="672" itemLabel="NFK +672"></f:selectItem>
+<f:selectItem itemValue="234" itemLabel="NGA +234"></f:selectItem>
+<f:selectItem itemValue="505" itemLabel="NIC +505"></f:selectItem>
+<f:selectItem itemValue="683" itemLabel="NIU +683"></f:selectItem>
+<f:selectItem itemValue="31" itemLabel="NLD +31"></f:selectItem>
+<f:selectItem itemValue="47" itemLabel="NOR +47"></f:selectItem>
+<f:selectItem itemValue="977" itemLabel="NPL +977"></f:selectItem>
+<f:selectItem itemValue="674" itemLabel="NRU +674"></f:selectItem>
+<f:selectItem itemValue="64" itemLabel="NZL +64"></f:selectItem>
+<f:selectItem itemValue="968" itemLabel="OMN +968"></f:selectItem>
+<f:selectItem itemValue="92" itemLabel="PAK +92"></f:selectItem>
+<f:selectItem itemValue="507" itemLabel="PAN +507"></f:selectItem>
+<f:selectItem itemValue="870" itemLabel="PCN +870"></f:selectItem>
+<f:selectItem itemValue="51" itemLabel="PER +51"></f:selectItem>
+<f:selectItem itemValue="63" itemLabel="PHL +63"></f:selectItem>
+<f:selectItem itemValue="680" itemLabel="PLW +680"></f:selectItem>
+<f:selectItem itemValue="675" itemLabel="PNG +675"></f:selectItem>
+<f:selectItem itemValue="48" itemLabel="POL +48"></f:selectItem>
+<f:selectItem itemValue="1787" itemLabel="PRI +1787"></f:selectItem>
+<f:selectItem itemValue="850" itemLabel="PRK +850"></f:selectItem>
+<f:selectItem itemValue="351" itemLabel="PRT +351"></f:selectItem>
+<f:selectItem itemValue="595" itemLabel="PRY +595"></f:selectItem>
+<f:selectItem itemValue="970" itemLabel="PSE +970"></f:selectItem>
+<f:selectItem itemValue="689" itemLabel="PYF +689"></f:selectItem>
+<f:selectItem itemValue="974" itemLabel="QAT +974"></f:selectItem>
+<f:selectItem itemValue="262" itemLabel="REU +262"></f:selectItem>
+<f:selectItem itemValue="40" itemLabel="ROM +40"></f:selectItem>
+<f:selectItem itemValue="40" itemLabel="ROU +40"></f:selectItem>
+<f:selectItem itemValue="70" itemLabel="RUS +70"></f:selectItem>
+<f:selectItem itemValue="250" itemLabel="RWA +250"></f:selectItem>
+<f:selectItem itemValue="966" itemLabel="SAU +966"></f:selectItem>
+<f:selectItem itemValue="249" itemLabel="SDN +249"></f:selectItem>
+<f:selectItem itemValue="221" itemLabel="SEN +221"></f:selectItem>
+<f:selectItem itemValue="65" itemLabel="SGP +65"></f:selectItem>
+<f:selectItem itemValue="290" itemLabel="SHN +290"></f:selectItem>
+<f:selectItem itemValue="47" itemLabel="SJM +47"></f:selectItem>
+<f:selectItem itemValue="677" itemLabel="SLB +677"></f:selectItem>
+<f:selectItem itemValue="232" itemLabel="SLE +232"></f:selectItem>
+<f:selectItem itemValue="503" itemLabel="SLV +503"></f:selectItem>
+<f:selectItem itemValue="378" itemLabel="SMR +378"></f:selectItem>
+<f:selectItem itemValue="252" itemLabel="SOM +252"></f:selectItem>
+<f:selectItem itemValue="508" itemLabel="SPM +508"></f:selectItem>
+<f:selectItem itemValue="381" itemLabel="SRB +381"></f:selectItem>
+<f:selectItem itemValue="239" itemLabel="STP +239"></f:selectItem>
+<f:selectItem itemValue="597" itemLabel="SUR +597"></f:selectItem>
+<f:selectItem itemValue="421" itemLabel="SVK +421"></f:selectItem>
+<f:selectItem itemValue="386" itemLabel="SVN +386"></f:selectItem>
+<f:selectItem itemValue="46" itemLabel="SWE +46"></f:selectItem>
+<f:selectItem itemValue="268" itemLabel="SWZ +268"></f:selectItem>
+<f:selectItem itemValue="248" itemLabel="SYC +248"></f:selectItem>
+<f:selectItem itemValue="963" itemLabel="SYR +963"></f:selectItem>
+<f:selectItem itemValue="1649" itemLabel="TCA +1649"></f:selectItem>
+<f:selectItem itemValue="235" itemLabel="TCD +235"></f:selectItem>
+<f:selectItem itemValue="228" itemLabel="TGO +228"></f:selectItem>
+<f:selectItem itemValue="66" itemLabel="THA +66"></f:selectItem>
+<f:selectItem itemValue="992" itemLabel="TJK +992"></f:selectItem>
+<f:selectItem itemValue="690" itemLabel="TKL +690"></f:selectItem>
+<f:selectItem itemValue="993" itemLabel="TKM +993"></f:selectItem>
+<f:selectItem itemValue="676" itemLabel="TON +676"></f:selectItem>
+<f:selectItem itemValue="1868" itemLabel="TTO +1868"></f:selectItem>
+<f:selectItem itemValue="216" itemLabel="TUN +216"></f:selectItem>
+<f:selectItem itemValue="90" itemLabel="TUR +90"></f:selectItem>
+<f:selectItem itemValue="688" itemLabel="TUV +688"></f:selectItem>
+<f:selectItem itemValue="886" itemLabel="TWN +886"></f:selectItem>
+<f:selectItem itemValue="255" itemLabel="TZA +255"></f:selectItem>
+<f:selectItem itemValue="971" itemLabel="UAE +971"></f:selectItem>
+<f:selectItem itemValue="256" itemLabel="UGA +256"></f:selectItem>
+<f:selectItem itemValue="380" itemLabel="UKR +380"></f:selectItem>
+<f:selectItem itemValue="598" itemLabel="URY +598"></f:selectItem>
+<f:selectItem itemValue="1" itemLabel="USA +1"></f:selectItem>
+<f:selectItem itemValue="998" itemLabel="UZB +998"></f:selectItem>
+<f:selectItem itemValue="39" itemLabel="VAT +39"></f:selectItem>
+<f:selectItem itemValue="1784" itemLabel="VCT +1784"></f:selectItem>
+<f:selectItem itemValue="58" itemLabel="VEN +58"></f:selectItem>
+<f:selectItem itemValue="1284" itemLabel="VGB +1284"></f:selectItem>
+<f:selectItem itemValue="92" itemLabel="VGB +92"></f:selectItem>
+<f:selectItem itemValue="1340" itemLabel="VIR +1340"></f:selectItem>
+<f:selectItem itemValue="84" itemLabel="VNM +84"></f:selectItem>
+<f:selectItem itemValue="678" itemLabel="VUT +678"></f:selectItem>
+<f:selectItem itemValue="681" itemLabel="WLF +681"></f:selectItem>
+<f:selectItem itemValue="684" itemLabel="WSM +684"></f:selectItem>
+<f:selectItem itemValue="967" itemLabel="YEM +967"></f:selectItem>
+<f:selectItem itemValue="27" itemLabel="ZAF +27"></f:selectItem>
+<f:selectItem itemValue="260" itemLabel="ZMB +260"></f:selectItem>
+<f:selectItem itemValue="263" itemLabel="ZWE +263"></f:selectItem>
+          	
+          	
+            </h:selectOneMenu> 
+  </div>
+  <div class="col-sm-8 col-xs-6" style="padding:0;margin-left:-12px;" >
+        <h:inputText style="padding:0;" class="form-control" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="   Eg. (646) 818-9894" id="alternate_mobile_phone_number" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+           </div>
+       </div>
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+       
+         <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="line_manager_name">Line Manager Name: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Line Manager Name" id="line_manager_name" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+   <!-- ################################################################################################################# --> 
+    
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="line_manager_id">Line Manager Id: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Line Manager Id" id="line_manager_id" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+  
+  
+     <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="line_manager_email_id"><span style="color:red; width:100px" >*</span>Line Manager Email Id: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Line Manager Email Id" id="line_manager_email_id" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required">
+                <f:validateRegex	pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" /></h:inputText>
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+     
+     
+  
+      
+   
+      <!-- ################################################################################################################# -->
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+      <div class="col-sm-3 control-label">
+        <h:outputLabel for="status">Status:<h:outputText value="  " ></h:outputText></h:outputLabel>  
+        <br/>
+     </div>
+      <div class="col-sm-2">
+        <h:selectOneMenu     class="form-control"    value="#{user.favCoffee1}">
+        
+   	    <f:selectItem itemValue="Active" itemLabel="Active" />
+   	    <f:selectItem itemValue="Inactive" itemLabel="Inactive" />
+        </h:selectOneMenu> 
+     </div>
+   </div> <!-- Nested row ################# -->
+  
+  
+     <!-- ################################################################################################################# --> 
+     
+     <!--   
+      <div class="row form-group"> Nested row ################# 
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="created_date">Created Date: </h:outputLabel>
+       </div>
+       <div class="col-sm-8">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Created Date " id="created_date" value="15/02/2018" readonly="true"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>               Nested row ################# 
+  
+  
+  
+      ################################################################################################################# 
+     
+      <div class="row form-group">  Nested row ################# 
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="created_by">Created By: </h:outputLabel>
+       </div>
+       <div class="col-sm-8">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Created By " id="created_by" value="Vinod" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              Nested row ################# 
+  
+    
+     ################################################################################################################# 
+      
+      <div class="row form-group"> Nested row ################# 
+        <div class="col-sm-3 control-label">
+         <h:outputLabel  for="last_updated_by">Last Updated By: </h:outputLabel>
+        </div>
+        <div class="col-sm-8">
+         <h:inputText class="form-control" 
+                a:placeholder="Enter Last Updated By " id="last_updated_by" value="Vinod" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+        </div>
+      </div>             Nested row ################# 
+  
+       ################################################################################################################# 
+     
+      <div class="row form-group">  Nested row ################# 
+        <div class="col-sm-3 control-label">
+         <h:outputLabel  for="extra_field1">Extra Field1: </h:outputLabel>
+        </div>
+        <div class="col-sm-8">
+         <h:inputText class="form-control" 
+                a:placeholder="Enter Extra Field1 " id="extra_field1" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+        </div>
+      </div>               Nested row ################# 
+  
+  
+      ################################################################################################################# 
+      
+      <div class="row form-group">  Nested row ################# 
+        <div class="col-sm-3 control-label">
+         <h:outputLabel  for="extra_field2">Extra Field2: </h:outputLabel>
+        </div>
+        <div class="col-sm-8">
+         <h:inputText class="form-control" 
+                a:placeholder="Enter Extra Field2 " id="extra_field2" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+        </div>
+      </div>              Nested row ################# 
+  
+  -->
+                       
+  
+     <!-- ################################################################################################################# -->
+   <div class="form-group">
+   <div class="row col-sm-7 col-sm-offset-3 control-label"> <!-- Nested row ################# -->
+     <div class="col-sm-6 col-xs-6">
+    <h:commandButton style="margin-bottom:8px;margin-top:5px;" class="btn btn-success btn-block "  value="Save" type="submit" action="#{user.goLoginPage}" />
+   </div>
+   
+   <div class="col-sm-6 col-xs-6 ">
+    <h:commandButton style="margin-bottom:8px;margin-top:5px;" class="btn btn-primary btn-block "  value="Cancel" type="submit" action="#{user.goLoginPage}" />
+   </div>
+   
+   
+   
+   
+   </div> <!-- Nested row ################# -->
+   </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+</h:form>
+</div>
+</div>
+ <!-- Main row end ****************************** -->
+<!-- ******************************************************************************************************************* -->
+
+
+<div class="row col-sm-1" >
+
+</div>
+
+
+
+<!--  
+<div class="col-sm-4 .d-none .d-sm-block .d-md-none">
+
+<img style="margin-right:0px;margin-top:50px;min-width=600px;min-height:400px;opacity:0.8" src="resources/images/green.png" class="img-thumbnail img-responsive pull-right d-sm-none d-md-block " alt="Cinque Terre"   > </img> 
+
+
+</div>
+   -->
+
+
+
+</div>
+
+
+
+
+</body> 
+</html>

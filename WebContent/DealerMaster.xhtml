@@ -1,0 +1,977 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://primefaces.org/ui">
+      
+      
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- Collapse working bcoz of this with jsf h:inputText....check dis link https://stackoverflow.com/questions/26430908/why-doesnt-bootstraps-panel-collapse-work-with-jsf    -->
+ <!-- Collapse working bcoz of this with jsf h:inputText -->
+<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+
+
+
+<!-- Calender libraries check dis link https://www.journaldev.com/3088/primefaces-calendar-component-example-tutorial#getting-started-with-calendar 
+<title>Calendar</title>
+		<script name="jquery/jquery.js" library="primefaces" type=""></script>
+
+
+-->
+
+
+<script>
+$(document).ready(function(){
+    $(".input2").focus(function(){
+        $(this).css("background-color", "#FFFFE0");
+    });
+    $(".input2").blur(function(){
+        $(this).css("background-color", "#f9f9f9");
+    });
+});
+
+</script>
+
+<!--  
+<script> src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#click").click(function(){
+        $(".vinod").scrollTop(100);
+    });
+});
+</script>
+-->
+
+
+
+
+
+
+
+
+
+<div id="vinod.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+
+
+<style>
+
+.vinod{
+
+
+overflow:auto;
+    height:350px;
+    overflow-x: hidden;<!--to hide horizontal scroll bar -->
+    
+   
+    
+}
+body {
+   background-image: url("resources/images/kisaan2.jpeg");
+    background-repeat: no-repeat;
+
+}
+
+
+
+
+.border_class_css{
+					
+			        
+				
+ background-color:#fff;
+  margin: 0 auto;
+  
+  border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+  font-family: roboto;
+   margin-bottom:40px;
+   border: .7px solid rgba(0, 0, 0, 0.2);
+	}				
+					
+</style>
+
+
+</h:head> 
+<h:body  style="background-color:#f9f9f9;margin-top:90px;"> 
+
+<div class="container  ">
+
+
+<div class="row col-sm-2">
+
+
+
+</div>
+
+
+<div class="row ">
+
+<div class="col-sm-9  border_class_css "  >
+<center><h1 >Register New Dealer</h1></center>
+<br/>
+<!--  <p:growl id="messages" /> -->
+<h:form  class="form-horizontal " id="myform">
+
+<!--  <p:focus context="myform" closable="false" />-->
+
+
+
+   <hr style="color:blue;margin-top:-2px;"></hr>
+
+<div class="vinod" id="vin">
+
+<!-- ******************************************************* -->
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+
+  <h:outputLabel  for="customer_id">Dealer Id: </h:outputLabel>
+</div>
+
+
+<div class="col-sm-7">
+
+
+  
+  
+ 
+     
+        
+        <h:inputText class="form-control"  disabled="true" 
+                a:placeholder="Dealer Id will be generated when the record has been saved."  id="customer_id"  readonly="true"   />
+
+    
+    </div>
+   
+     </div>
+  <!-- ***************************************************************************************** -->   
+  
+  <div class="row form-group ">
+    <div class="col-sm-3 control-label">
+  
+         <h:outputLabel  for="parent_customer"> Parent Dealer :<rich:spacer height="1" width="3" /><span
+            title="Enter the parent department or company or group within your enterprise.
+This will be used to roll-up as well as cascade down information within the enterprise." 
+  style="margin-top:2px;margin-left:0px" class=" glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+     </div>
+     
+     <div class="col-sm-7">
+     
+     
+       <h:inputText class="form-control input2"
+                a:placeholder="Enter  Parent Dealer" id="parent_customer" 
+                />
+   
+    </div>
+    </div>
+     
+   
+   
+   
+    <!-- *******************************************************  -->
+    
+   
+    <!-- *******************************************************  -->
+    
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+  
+      <h:outputLabel   for="customer_title"><span style="color:red; width:100px" >* </span>Dealer Title: </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter Dealer Title" id="customer_title" required="true"
+                  requiredMessage="Dealer title is required." validatorMessage="*Please enter minimum 4 characters"> 
+               <f:validateLength minimum="4"  /> </h:inputText>
+               
+               
+ <!--     <p:message for="org_title" display="text" style="color:red;margin:8px;"/> -->
+    
+ <!--    <h:message for="customer_title"  style="color:red;margin:8px;"/>  --> 
+    
+   
+   
+    </div>
+    </div>
+    <!-- ****************************************************************** -->
+    
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+  
+      <h:outputLabel  style="margin-top:0px;margin-right:3px"  for="customer_type1" ><span style="color:red; width:100px" >* </span>Dealer Type:<rich:spacer height="1" width="3" /><span   
+ title="Please select dealer type." style="margin-top:2px;margin-left:0px" class="pull-right glyphicon glyphicon-info-sign"></span></h:outputLabel>  
+  <br/>
+  </div>
+  
+  <div class="col-sm-7 ">
+     <h:selectOneMenu  id="customer_type1" required="true"  requiredMessage="Please select dealer type." class="form-control"    >
+  
+   <f:selectItem itemValue="#{null}"  itemLabel="Select" /> 
+  <f:selectItem itemValue="Holding Company" itemLabel="Dealer Type 1"  />
+   	<f:selectItem itemValue="Enterprise" itemLabel="Dealer Type 2" />
+  	<f:selectItem itemValue="Group" itemLabel="Dealer Type 3" />
+   	<f:selectItem itemValue="Region" itemLabel="Dealer Type 4" />
+   	<f:selectItem itemValue="Division" itemLabel="Dealer Type 5" />
+   	<f:selectItem itemValue="Section" itemLabel="Dealer Type 6" />
+   	<f:selectItem itemValue="Unit" itemLabel="Dealer Type 7" />
+   
+  </h:selectOneMenu> 
+
+<!--  <h:message for="org_type1"  style="color:red;margin:8px;"/> -->
+</div>
+
+</div>
+   
+   <!-- ************************************************************************* -->
+   
+   
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label ">
+
+
+
+        <h:outputLabel   for="customer_description"><span style="color:red; width:100px" >* </span>Dealer Description: </h:outputLabel>
+     </div>
+     
+   <div class="col-sm-7">     
+        <h:inputTextarea cols="8" rows="8"    class="form-control input2" 
+                a:placeholder="Please Describe About Dealer" id="customer_description"  
+                required="true" requiredMessage="Organization customer is required." />
+ <!--   <h:message for="customer_description"  style="color:red;margin:8px;"/> -->
+    
+    </div>
+    
+   </div>
+   
+   
+   <!-- ************************************************************************************ -->
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel for="website">Website: </h:outputLabel>
+       </div>  
+        
+        <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="E.g. www.example.com" id="website"   />
+    </div>
+    
+  
+    </div>
+ 
+    <!-- ********************************************************************************** -->
+    
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+
+         <h:outputLabel  for="telephone">Telephone: </h:outputLabel>
+         
+         </div>
+         <div class="col-sm-7">
+       <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Eg. 0124-286451" id="telephone"  requiredMessage="Parent org-id is required" />
+ 
+    </div>
+    </div>
+ 
+   <!-- ************************************************************************************************************* -->
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel style="margin-right:3px;"  for="fax">Fax: </h:outputLabel>
+      </div>
+      
+      <div class="col-sm-7">  
+        <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Eg. +91-145-2431002" id="fax"    requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+    </div>
+    <!-- ************************************************************************************************************** -->
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+    
+         <h:outputLabel  style="margin-right:-4px;" for="facebook">Facebook:  </h:outputLabel>
+         </div>
+         
+         <div class="col-sm-7">
+       <h:inputText class="form-control input2" 
+                a:placeholder="Enter dealer's organization's facebook profile url." id="facebook"   requiredMessage="Parent org-id is required" />
+  
+    </div>
+    </div>
+   
+   <!-- ********************************************************************************************************** -->
+   
+   
+   <!-- ************************************************************************************************************** -->
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+    
+         <h:outputLabel  style="margin-right:-4px;" for="twitter">Twitter:  </h:outputLabel>
+         </div>
+         
+         <div class="col-sm-7">
+       <h:inputText class="form-control input2" 
+                a:placeholder="Enter dealer's organization's twitter profile url." id="twitter"  requiredMessage="Parent org-id is required" />
+  
+    </div>
+    </div>
+   
+   <!-- ********************************************************************************************************** -->
+   
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+        <h:outputLabel  for="office_name">Office name:  </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter office name" id="office_name"   requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+    </div>
+    
+    <!-- ************************************************************************************************************* -->
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+    
+         <h:outputLabel  for="office_number">Office number:<rich:spacer height="1" width="3" /> </h:outputLabel>
+         </div>
+         
+         <div class="col-sm-7">
+         
+       <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Enter office number" id="office_number"   requiredMessage="Parent org-id is required" />
+    
+    </div>
+    </div>
+   
+   <!-- ********************************************************************************************************************** -->
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel  for="address">Address: </h:outputLabel>
+        </div>
+     
+        <div class="col-sm-7">
+        <div class="row">
+          
+        <div class="col-sm-12">
+         <h:inputText class="form-control input2" style="margin-top:2px;"
+                a:placeholder="Address Line 1" id="address"  requiredMessage="Parent org-id is required" />
+ </div>
+  
+ <!--   <div class="col-sm-6">
+  
+        <h:inputText class="form-control" style="margin-top:2px;margin-left:0px;"
+                a:placeholder="Building" id="address1" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+     
+        </div>
+        -->
+         </div>
+        
+       </div>
+     
+     
+        
+        
+        
+        
+     
+     <!-- ###### -->
+     
+      
+        <div class="col-sm-7 col-sm-offset-3">
+        <div class="row">
+          
+        <div class="col-sm-12 ">
+         <h:inputText class="form-control input2" style="margin-top:2px;"
+                a:placeholder="Address Line 2" id="address3"   requiredMessage="Parent org-id is required" />
+ </div>
+  
+  <!-- <div class="col-sm-6 ">
+  
+        <h:inputText class="form-control" style="margin-top:2px;"
+                a:placeholder="Landmark" id="address4" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+     
+        </div>  -->
+         </div>
+        
+       </div>
+     
+      <!-- ######### -->
+      
+  
+        <div class="col-sm-7 col-sm-offset-3 ">
+        <div class="row">
+          
+        <div class="col-sm-6 ">
+         <h:inputText  class="form-control input2" style="margin-top:2px;" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Postal code" id="address5"  requiredMessage="Parent org-id is required" />
+ </div>
+  
+  <div class="col-sm-6" >
+  
+        <h:inputText class="form-control input2" style="margin-top:2px;"
+                a:placeholder="City" id="address6"    requiredMessage="Parent org-id is required" />
+     
+        </div>
+         </div>
+        
+       </div>
+     <!-- ####################################### -->
+     
+    
+        <div class="col-sm-7 col-sm-offset-3 ">
+        <div class="row" >
+          
+        <div class="col-sm-6  " >
+         <h:inputText  class="form-control input2" style="margin-top:2px;"
+                a:placeholder="State" id="address7"   requiredMessage="Parent org-id is required" />
+ </div>
+  
+  <div class="col-sm-6" >
+  
+        <h:inputText  class="form-control input2"  style="margin-top:2px;"
+                a:placeholder="Country" id="address8"    requiredMessage="Parent org-id is required" />
+     
+        </div>
+         </div>
+        
+       </div>
+     <!-- ########## -->
+      <!--  
+      
+        <div class="col-sm-7 col-sm-offset-3 ">
+        <div class="row">
+          
+        <div class="col-sm-6 ">
+         <h:inputText  class="form-control" style="margin-top:2px;"
+                a:placeholder="Country" id="address9" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+ </div>
+  
+  <div class="col-sm-6">
+  
+        <h:inputText style="margin-top:2px;" class="form-control" 
+                a:placeholder="Region" id="address10" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+     
+        </div>
+         </div>
+        
+       </div>
+     -->
+     <!-- ############### -->
+     
+      
+    
+    
+    
+    
+   
+    </div>
+   
+    <!-- ************************************************************************* -->
+   
+    
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="customer_chief">Dealer Chief:<rich:spacer height="1" width="1" /> <span   title="Please enter the senior most person of the dealer's organization or department." 
+ style="margin-top:1px;margin-left:-5px" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7 ">
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Organization Chief" id="customer_chief"  requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+    </div>
+    
+    <!-- ******************************************************************** -->
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="chief_risk_officerz">Chief Officer:<rich:spacer height="1" width="1" /> <span   title="Please enter the senior most person of dealer's organization or department." 
+ style="margin-top:1px;margin-left:-5px" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7 ">
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Chief  Officer" id="chief_risk_officerz"   requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+    </div>
+    
+    <!-- ******************************************************************** -->
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+    
+        <h:outputLabel for="risk_manager">Manager:<rich:spacer height="1" width="3" /> <span   title="Please enter a person for this role which handles tactical level responsibilities." 
+ style="margin-top:2px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span></h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Manager's name" id="risk_manager"  requiredMessage="Parent org-id is required" />
+ 
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+   </div>
+   
+   
+   
+   
+    <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel for="risk_cordinator">Cordinator:<rich:spacer height="1" width="1" /> <span   title="Please 
+        enter a person for this role which handles operational level responsibilities
+         for Risk Management. This role ensures focuses on definition and follow-up of
+          actions related." 
+ style="margin-top:2px; margin-left:-2px;" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Cordinator" id="risk_cordinator"   requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+   <!-- ******************************************************************************************* -->
+   <div class="row form-group"> <!-- Nested row ################# -->
+<div class="col-sm-3 control-label">
+<h:outputLabel for="status">Stage:<h:outputText value=" " ></h:outputText></h:outputLabel> 
+<br/>
+</div>
+<div class="col-sm-2">
+<h:selectOneMenu class="form-control input2" >
+<f:selectItem itemLabel="Select " itemValue="#{null}" ></f:selectItem>
+<f:selectItem itemValue="Stage 1" itemLabel="Stage 1" />
+<f:selectItem itemValue="Stage 2" itemLabel="Stage 2" />	
+</h:selectOneMenu> 
+</div>
+
+</div>
+   
+    
+  
+   <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group">
+    
+    <div class="col-sm-3 control-label">
+   
+      <h:outputLabel for="status">Status:<h:outputText value="  " ></h:outputText></h:outputLabel>  
+ 
+  
+  </div>
+  <div class="col-sm-2">
+     <h:selectOneMenu   id="status"  class="form-control"   >
+  
+   	<f:selectItem itemValue="Active" itemLabel="Active" />
+   	<f:selectItem itemValue="Inactive" itemLabel="Inactive" />
+  </h:selectOneMenu> 
+
+
+</div>
+    
+    <div class="col-sm-2 control-label">
+      <h:outputLabel  for="email">Attach file:  
+      <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Attachfile." 
+></span></h:outputLabel></div><p:fileUpload  style="margin-top:4px;" mode="simple"/>
+    
+    </div>
+    
+    <!-- ************************************************************************************ -->
+   
+   <!--  
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel style="margin-right:-4px;" for="created_date">Created Date: </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7 ">
+        
+        <h:inputText     class="form-control" 
+                a:placeholder="Enter created date" id="created_date" value="02/07/2018" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+   </div>
+   
+    ************************************************************************************ 
+    
+  
+     ************************************************************************************ 
+   
+   
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel style="margin-right:-4px;" for="created_by">Created By: </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText     class="form-control"  readonly="true"
+                a:placeholder="Enter created by" id="created_by" value="Vinod"  required="true" requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+    ************************************************************************************ 
+   
+     ************************************************************************************ 
+   
+   
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel style="margin-right:-4px;" for="Last_updated_on">Last Update On: </h:outputLabel>
+        
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText     class="form-control" 
+                a:placeholder="Enter last updated on" id="last_updated_on" value="05/12/2018" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+   </div>
+   
+    ************************************************************************************ 
+   
+   
+     ************************************************************************************ 
+   
+   
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel style="margin-right:-4px;" for="Last_updated_by">Last Update By: </h:outputLabel>
+      </div>
+      
+      <div class="col-sm-7">  
+        <h:inputText     class="form-control" 
+                a:placeholder="Enter last updated by" id="last_updated_by" value="23/05/2018" required="true" readonly="true" requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+   </div>
+   
+    ************************************************************************************ 
+   
+ -->
+ 
+ 
+    <!-- ************************************************************************************ -->
+ 
+    
+   
+
+   
+   <!-- **************************************************************************************** -->
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ 
+   
+   
+   
+   
+   <!-- PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP -->
+   <div class="row col-sm-3 col-sm-offset-1">
+   <a           id="click"      type="button"  data-toggle="collapse" data-target=".friend" ><span style="color:#428bca; cursor: pointer;text-decoration:underline;margin-bottom:3px">Advanced Fields:</span>
+</a>
+
+
+   </div>
+   
+    <!-- ************************************************************************************ -->
+   
+   <br/>
+   
+      <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="risk_threshold1z">Extra Field 1:<rich:spacer height="1" width="1" /><span></span> <span   title="Extra Field" 
+ style="margin-top:1px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7 ">
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Extra Text Field 1" id="risk_threshold1z"  required="false" requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+   <!-- ******************************************************************************************* -->
+   
+   <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="risk_threshold2b">Extra Field 2:<rich:spacer height="1" width="3" /><span></span><span   title="Extra Field" 
+ style="margin-top:1px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span></h:outputLabel>
+     </div>
+     
+     <div class="col-sm-7"> 
+        <h:inputText class="form-control input2"
+                a:placeholder="Extra Text Field 2" id="risk_threshold2b"  required="false" requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+   <!-- ******************************************************************************************* -->
+   
+   
+   <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="risk_threshold3c">Extra Field 3:<rich:spacer height="1" width="3" /><span></span><span   title="Extra Field" 
+ style="margin-top:1px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        
+        </div>
+        
+        <div class="col-sm-7 ">
+        
+        <h:inputText     class="form-control input2"  onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Extra Number Field 3" id="risk_threshold3c"  required="false" requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+   <!-- ******************************************************************************************* -->
+   
+   
+   <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="risk_threshold4d">Extra Field 4:<rich:spacer height="1" width="0" /><span> </span><span   title="Extra Field" 
+ style="margin-top:1px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        
+        <p:calendar id="extra_date1"  p:placeholder="DD-MM-YYYY" 
+ style=" border: 0;" pattern="dd-MM-yyyy" mask="true" />
+   
+    
+    </div>
+   </div>
+   <!-- ************************************************************************************ -->
+    <!-- ************************************************************************************ -->
+ 
+   
+   
+   <!-- ************************************************************************************ -->
+  
+  
+  
+  
+    <!-- ************************************************************************************ -->
+ 
+ 
+
+<!-- ************************************************************************************************ -->
+<br/>
+<br/>
+</div>   <!-- vinod ending -->
+
+<hr></hr>
+<div class="row form-group">
+
+
+
+<div class="row col-sm-6 col-sm-offset-3 ">
+ 
+   <div class="col-sm-6 col-xs-6">
+    <h:commandButton  style="" class="btn btn-success btn-block"  value="Register"
+      />
+   </div>
+   
+   <div class="col-sm-6 col-xs-6">
+    <h:commandButton style="" class="btn btn-primary btn-block"  
+    value="Reset"  />
+   </div>
+   
+   
+   
+   
+   
+   </div>
+
+</div>
+
+<!-- PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP -->
+   
+   <!-- buttons removed -->
+   
+   
+    
+
+
+
+</h:form>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!--  
+<div class="col-sm-5">
+<br></br>
+<img style="margin-right:0px;" src="resources/images/rsk.jpg" class="img-thumbnail img-responsive pull-right" alt="Cinque Terre"   > </img> 
+
+
+</div>
+
+-->
+</div>
+
+
+
+<div class="row col-sm-1" >
+
+<!-- CALENDER PRIMEFACES TAG 
+<p:calendar value="#{calendarManagedBean.date}">
+				<p:ajax event="dateSelect" listener="#{calendarManagedBean.dateSelectedAction}"></p:ajax>
+			</p:calendar>  -->
+
+</div>
+
+
+
+
+<!-- 
+
+<div class="row ">
+<div class="col-sm-6 col-sm-offset-6 ">
+
+ <img src="resources/images/risk__2.jpg" class="img-thumbnail img-responsive" alt="Cinque Terre" style="margin-top:-2795px;"> </img> -->
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</h:body> 
+
+
+</html>

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsf/core"
+	
+	 xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+
+      xmlns:rich="http://primefaces.org/ui">
+	
+	
+	
+<h:head>
+	
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>   <!-- Collapse working bcoz of this with jsf h:inputText....check dis link https://stackoverflow.com/questions/26430908/why-doesnt-bootstraps-panel-collapse-work-with-jsf    -->
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> <!-- Collapse working bcoz of this with jsf h:inputText -->
+<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+
+
+
+
+
+<div id="vinod.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+<style>
+.vinu{
+
+margin:10px;
+
+}
+
+
+</style>
+
+
+	
+</h:head>
+<h:body>
+	<center><h3>Organization Master Data</h3></center>
+	<br/>
+	<h:form class="vinu">
+		<p:dataTable id="meraTable" value="#{orgMaster.listObj}" var="mobile" border="2" resizableColumns="true" 
+			cellspacing="1" cellpadding="1"   
+			editable="true" editMode="cell" 
+reflow="true" scrollable="true" scrollHeight="350" sortBy="#{mobile.organizationTitle},#{mobile.parentOrganization}" 
+class="table table-striped table-hover table-bordered" style="margin-top:20px;" 
+ paginator="true" rows="25" rowsPerPageTemplate="25,35,50" 
+paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+filteredValue="#{orgMaster.filteredlist}" widgetVar="categoryListTable">
+			
+			
+			
+			
+			
+			
+			<f:facet name="header">
+<div class="row" style="margin: -3px;">
+<div class="col-sm-4" style="margin-left: -17px" >
+<h:inputText id="globalFilter" onkeyup="categoryListTable.filter()" a:placeholder="Search on any field (s) " class="form-control" />
+</div>
+
+<div class="col-sm-6">
+<span style=";font-size:22px;text-align:center;">Manage Category List</span>
+</div> 
+
+<div class="col-sm-2 pull-right" style="margin-right: -17px">
+
+<h:commandLink id="excel">
+<img src="resources/images/Excel.png" class="img-responsive pull-right " alt="Excel" style="width:35px;"></img>
+<p:dataExporter type="xls" target="meraTable" fileName="Prudential&nbsp;Prudential&nbsp;List"  />
+</h:commandLink>
+
+<h:commandLink id="pdf" >
+<img src="resources/images/pdf.png" class="img-responsive pull-right" alt="pdf" style="width:35px;"></img>
+<p:dataExporter type="pdf" target="meraTable" fileName="Prudential&nbsp;Orgmaster&nbsp;List" />
+</h:commandLink>	
+</div>
+
+</div>
+</f:facet> 
+			
+			
+			
+			
+			
+			
+			<p:column  headerText="Organization Id" >
+               <h:outputText value="#{mobile.organizationId}" />
+             </p:column>
+
+			
+			<p:column  headerText="Organization Title" >
+               <h:outputText value="#{mobile.organizationTitle}" />
+             </p:column>
+                
+                <p:column  headerText="Organization Type" >
+               <h:outputText value="#{mobile.organizationType}" />
+             </p:column>
+                
+                
+               <p:column  headerText="Parent Organization" >
+               <h:outputText value="#{mobile.parentOrganization}" />
+             </p:column>
+                    
+                    </p:dataTable>
+                    
+                    
+                    </h:form>
+                    
+                    </h:body>
+                    </html>

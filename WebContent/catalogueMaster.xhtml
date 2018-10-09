@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://primefaces.org/ui">
+  
+      
+      <h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+ <link rel="stylesheet" href="resources/css/bootstrap.css"/>
+
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+<script type="text/javascript" src="resources/js/jquery.js"/>
+<title>Catalog</title>
+
+
+
+
+
+<script>
+$(document).ready(function(){
+    $(".input2").focus(function(){
+        $(this).css("background-color", "#FFFFE0");
+    });
+    $(".input2").blur(function(){
+        $(this).css("background-color", "#f9f9f9");
+    });
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<div id="vinod.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+
+
+<style>
+
+body {
+   background-image: url("resources/images/");
+    background-repeat: no-repeat;
+
+}
+
+
+
+.bhavna{
+
+
+overflow:auto;
+    height:300px;
+   
+    overflow-x: hidden;
+ 
+   
+    
+}
+
+
+
+
+.border_class_css{
+background-color:#fff;
+  margin: 0 auto;
+   border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+  font-family: roboto;
+   
+   border: .7px solid rgba(0, 0, 0, 0.2);
+	}				
+					
+</style>
+
+
+
+<style type="text/css">
+.ui-growl {
+
+top:60px;
+Right:20px;
+width:301px;
+
+}
+</style>
+
+
+
+
+
+</h:head> 
+<h:body  style="background-color:#f9f9f9;margin-top:40px;"> 
+
+<div class="container  ">
+
+
+
+<br></br><br></br><br></br>
+<div class="row col-sm-2">
+
+
+
+</div>
+
+
+<div class="row ">
+
+<div class="col-sm-9  border_class_css "  >
+				<p:growl id="messages" />
+					<h1><center>Catalog Master</center> </h1>
+					
+				  <h:form  class="form-horizontal " id="myform">
+
+<p:focus context="myform" closable="false" />
+		
+				  
+				  
+   <div class="row form-group">
+
+</div>
+   <hr style="color:blue;margin-top:-2px;"></hr>
+
+<div class="bhavna" id="bha">
+
+<div class="row form-group"> <!-- Nested row ################# -->
+<div class="col-sm-3 control-label">
+<h:outputLabel for="InformationType">Information Type:</h:outputLabel> 
+<br/>
+</div>
+<div class="col-sm-7">
+<h:selectOneMenu class="form-control input2"  value="#{catMaster2.informationType}" >
+<f:selectItem itemLabel="Select " itemValue="#{null}" ></f:selectItem>
+<f:selectItem itemValue="Status" itemLabel="Status" />
+<f:selectItem itemValue="Stage" itemLabel="Stage" />
+	
+</h:selectOneMenu> 
+</div>
+
+</div>
+ <div class="row form-group">
+<div class="col-sm-3 control-label">
+<h:outputLabel  for="Values"   >Values:</h:outputLabel>
+</div>
+<div class="col-sm-7">
+ <h:inputTextarea class="form-control input2"   
+                a:placeholder="Enter Values"  id="Values"   value="#{catMaster2.values}"   />
+ </div>
+ </div>
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+<h:outputLabel  for="SequenceofDisplay"    >Sequence of Display: </h:outputLabel>
+</div>
+<div class="col-sm-7">
+ <h:inputText class="form-control input2"  
+                  onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;" a:placeholder="Enter Sequence of  Display"
+                
+                 id="SequenceofDisplay"   value="#{catMaster2.sequenceOfDisplay}"  />
+ </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+     
+               
+ 
+ 
+    <div class="row form-group">
+    
+    <div class="col-sm-3 control-label">
+   
+      <h:outputLabel for="status">Status:</h:outputLabel>  
+ 
+  
+  </div>
+  <div class="col-sm-2">
+     <h:selectOneMenu   id="status"  class="form-control"   value="#{catMaster2.status}" >
+  
+   	<f:selectItem itemValue="Active" itemLabel="Active" />
+   	<f:selectItem itemValue="Inactive" itemLabel="Inactive" />
+  </h:selectOneMenu> 
+
+
+</div>
+  
+  
+   </div><hr></hr>
+  <div class="row col-sm-7 col-sm-offset-3   ">
+ 
+   <div class="col-sm-5 col-xs-6 control-label">
+    <h:commandButton  style="margin-bottom:13px"  class="btn fontsize btn-success btn-block"  value="Submit"   action="#{catMaster2.submit()}"  />
+   </div>
+   
+   <div class="col-sm-5 col-xs-6 control-label">
+    <h:commandButton  style="margin-bottom:13px" class="btn fontsize btn-primary btn-block"  value="Reset"  action="#{catMaster2.reset()}"  />
+   </div>
+   </div>	</div>	
+</h:form>
+<br/>
+ 
+ 
+ 
+ </div> 
+
+
+			</div>		
+			
+
+ 
+
+    
+     
+     		
+			
+			
+			
+			
+			
+			
+</div>
+
+  	<div style="padding:0px;">
+<h:form style="background-color:white;">
+		<p:dataTable id="meraTable" value="#{intMaster1.listObj2}" var="mobile" border="2" resizableColumns="true" 
+			cellspacing="1" cellpadding="1"   
+			editable="true" editMode="cell" 
+reflow="true" scrollable="true" scrollHeight="250" 
+class="table table-striped table-hover table-bordered" style="margin-top:20px;" 
+ paginator="true" rows="5" rowsPerPageTemplate="5,10,15" 
+paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+>
+			
+			
+			
+			
+			
+			
+			<f:facet name="header">
+<div class="row" style="margin: -3px;">
+
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+<span style="font-size:22px;">Manage Catalog Master Data</span>
+</div> 
+
+<div class="col-sm-2 pull-right" style="margin-right: 20px">
+
+<h:commandLink id="excel">
+<img src="resources/images/Excel.png" class="img-responsive pull-right " alt="Excel" style="width:35px;"></img>
+<p:dataExporter type="xls" target="meraTable" fileName="Prudential&nbsp;Prudential&nbsp;List"  />
+</h:commandLink>
+
+<h:commandLink id="pdf" >
+<img src="resources/images/pdf.png" class="img-responsive pull-right" alt="pdf" style="width:35px;"></img>
+<p:dataExporter type="pdf" target="meraTable" fileName="Prudential&nbsp;Orgmaster&nbsp;List" />
+</h:commandLink>	
+</div>
+
+</div>
+</f:facet> 
+			
+			
+			
+			
+			
+			
+			<p:column filterBy="#{mobile.fieldDealerName}" sortBy="#{mobile.fieldDealerName}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" headerText="Information Type" >
+               <h:outputText value="#{mobile.fieldDealerName}" />
+             </p:column>
+
+			
+			<p:column  headerText="Values" filterBy="#{mobile.fieldAgronomistName}" sortBy="#{mobile.fieldAgronomistName}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.fieldAgronomistName}" />
+             </p:column>
+                
+                <p:column  headerText="Sequence of Display" filterBy="#{mobile.customerName}" sortBy="#{mobile.customerName}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.customerName}" />
+             </p:column>
+                
+                
+               <p:column  headerText="Status" filterBy="#{mobile.interactionDetails}" sortBy="#{mobile.interactionDetails}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.interactionDetails}" />
+             </p:column>
+             
+             
+                    
+                    </p:dataTable>
+                    
+                    
+                    </h:form>
+       </div>
+
+
+</h:body>
+
+                    
+                    
+                   
+  
+
+
+
+ 
+
+
+
+	
+
+</html>

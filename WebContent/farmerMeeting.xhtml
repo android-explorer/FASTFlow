@@ -1,0 +1,610 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://primefaces.org/ui">
+      
+      
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+
+
+<script>
+$(document).ready(function(){
+    $(".input2").focus(function(){
+        $(this).css("background-color", "#FFFFE0");
+    });
+    $(".input2").blur(function(){
+        $(this).css("background-color", "#f9f9f9");
+    });
+});
+
+</script>
+
+
+<div id="vinod.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+
+
+<style>
+
+
+
+
+
+
+.border_class_css{
+					
+			        
+				
+ background-color:#fff;
+  margin: 0 auto;
+  
+  border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+  font-family: roboto;
+   margin-bottom:40px;
+   border: .7px solid rgba(0, 0, 0, 0.2);
+	}		
+	
+	
+	
+		
+body {
+   background-image: url("resources/images/kisaan9.png");
+   background-color: #cccccc;
+}
+
+.jyoti{
+
+
+overflow:auto;
+    height:320px;
+    width:860px;
+    overflow-x: hidden;<!--to hide horizontal scroll bar -->
+    
+   
+    
+}
+
+.calendarClass input {
+    width: 190px;
+    height:32.2px;
+}
+
+
+
+
+.border_class_css{
+					
+			        
+				
+ background-color:#fff;
+ margin-right:20px;
+  
+  
+  border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+  font-family: roboto;
+   margin-bottom:40px;
+   border: .7px solid rgba(0, 0, 0, 0.2);
+	}					
+		
+		
+		
+					
+</style>
+
+
+</h:head> 
+
+ 
+  
+
+
+<h:body  style="background-color:#f9f9f9;margin-top:30px;"> 
+
+
+
+
+
+<div class="container  ">
+
+<div id="indexheader">
+<ui:insert name="indexheader">
+<ui:include src="navBar.xhtml" />
+</ui:insert>
+</div>
+
+<!-- -end of header --> 
+<br></br><br></br><br></br>
+<div class="row col-sm-2 col-xs-1">
+
+
+
+</div>
+
+
+<div class="row ">
+
+<div class="col-sm-9  border_class_css "  >
+<center><h1 >Farmer Meeting</h1></center>
+
+<hr/>
+<p:growl id="messages" />
+
+<h:form  class="form-horizontal " id="myform">
+
+   
+   
+   
+   <div class="jyoti" id="vin">
+
+<!-- ******************************************************* -->
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+
+  <h:outputLabel  for="customer_id">Client Name: </h:outputLabel>
+  <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Client Name" 
+></span>
+</div>
+
+
+<div class="col-sm-4">
+        
+        <input type="text"  class="form-control" placeholder="Client Name." requiredMessage="* Please Enter Project Name"  /></div>
+        </div>
+
+
+
+<!-- ******************************************************* -->
+
+  <!-- ***************************************************************************************** -->   
+ 
+  
+  
+  
+ <div class=" row form-group ">
+
+<div class="col-sm-3 control-label"> 
+ <h:outputLabel >State:</h:outputLabel>
+  <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="State">
+         </span>
+ 
+ <br/></div>
+ <div class=" col-sm-3">
+ <h:selectOneMenu   id="State"  class="form-control"    >
+ <f:selectItem itemValue="Select" itemLabel="Select" />
+ <f:selectItem itemValue="Andhra Pradesh" itemLabel="Andhra Pradesh" />
+ <f:selectItem itemValue="Arunachal Pradesh" itemLabel="Arunachal Pradesh" />
+ <f:selectItem itemValue="Assam" itemLabel="Assam" />
+ <f:selectItem itemValue="Bihar" itemLabel="Bihar" />
+ <f:selectItem itemValue="Chattisgarh" itemLabel="Chattisgarh" />
+ <f:selectItem itemValue="Goa" itemLabel="Goa" />
+ <f:selectItem itemValue="Gujarat." itemLabel="Gujarat." />
+ <f:selectItem itemValue="Haryana" itemLabel="Haryana" />
+ <f:selectItem itemValue="Himachal Pradesh" itemLabel="Himachal Pradesh" />
+ <f:selectItem itemValue="Jammu/Kashmir" itemLabel="Jammu/Kashmir" />
+ <f:selectItem itemValue="Jharkhand" itemLabel="Jharkhand" />
+ <f:selectItem itemValue="Karnataka" itemLabel="Karnataka" />
+ <f:selectItem itemValue="Kerala" itemLabel="Kerala" />
+ <f:selectItem itemValue="Madhya Pradesh" itemLabel="Madhya Pradesh" />
+ <f:selectItem itemValue="Maharashtra" itemLabel="Maharashtra" />
+ <f:selectItem itemValue="Manipur" itemLabel="Manipur" />
+ <f:selectItem itemValue="Meghalaya" itemLabel="Meghalaya" />
+ <f:selectItem itemValue="Mizoram" itemLabel="Mizoram" />
+ <f:selectItem itemValue="Nagaland" itemLabel="Nagaland" />
+ <f:selectItem itemValue="Odisha" itemLabel="Odisha" />
+ <f:selectItem itemValue="Punjab" itemLabel="Punjab" />
+ <f:selectItem itemValue="Rajasthan" itemLabel="Rajasthan" />
+ <f:selectItem itemValue="Sikkim" itemLabel="Sikkim" />
+ <f:selectItem itemValue="Tamil Nadu" itemLabel="Tamil Nadu" />
+  <f:selectItem itemValue="Telangana" itemLabel="Telangana" />
+   <f:selectItem itemValue="Tripura" itemLabel="Tripura" />
+    <f:selectItem itemValue="Uttarakhand" itemLabel="Uttarakhand" />
+     <f:selectItem itemValue="Uttar Pradesh" itemLabel="Uttar Pradesh" />
+      <f:selectItem itemValue="West Bengal" itemLabel="West Bengal" />
+      
+ 
+ </h:selectOneMenu></div>
+  
+  
+<div class="col-sm-2 control-label">
+  
+         <h:outputLabel  for="parent_customer">District :
+         <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="District">
+         </span> 
+</h:outputLabel>
+     </div>
+       <div class="col-sm-3">
+ <h:selectOneMenu   id="district"  class="form-control"   >
+ <f:selectItem itemValue="Select" itemLabel="Select" />
+ <f:selectItem itemValue="District 1" itemLabel="District 1" />
+ <f:selectItem itemValue="District 2" itemLabel="District 2" />
+ <f:selectItem itemValue="District 3" itemLabel="District 3" />
+ <f:selectItem itemValue="District 4" itemLabel="District 4" />
+ </h:selectOneMenu></div></div>
+
+
+<div class=" row form-group ">
+<div class="col-sm-3 control-label"> 
+  
+         <h:outputLabel  for="parent_customer">Territory HQ :
+         <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Territory HQ">
+         </span> 
+</h:outputLabel>
+     </div>
+       <div class="col-sm-3">
+ <h:selectOneMenu   id="territoryhq"  class="form-control"    >
+ <f:selectItem itemValue="Select" itemLabel="Select" />
+ <f:selectItem itemValue="Territory1" itemLabel="Territory1" />
+ <f:selectItem itemValue="Territory2" itemLabel="Territory2" />
+ </h:selectOneMenu></div>
+ 
+ 
+ 
+ 
+<div class="col-sm-2 control-label">
+  
+         <h:outputLabel  for="parent_customer">Village:
+         <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Village">
+         </span> 
+</h:outputLabel>
+     </div>
+       <div class="col-sm-3">
+ <h:selectOneMenu   id="village"  class="form-control"    >
+ <f:selectItem itemValue="Select" itemLabel=" Select" />
+ <f:selectItem itemValue="village1" itemLabel="village1" />
+ <f:selectItem itemValue="village2" itemLabel="village2" />
+ </h:selectOneMenu></div></div>
+
+
+<div class=" row form-group ">
+<div class="col-sm-3 control-label"> 
+ <h:outputLabel >Purpose Category:</h:outputLabel>
+  <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Purpose Category">
+         </span>
+ 
+ </div>
+ <div class="col-sm-3">
+ <h:selectOneMenu   id="category"  class="form-control"    >
+ <f:selectItem itemValue="Select" itemLabel="Select" />
+ <f:selectItem itemValue="Category1" itemLabel="Category1" />
+ <f:selectItem itemValue="Category2" itemLabel="Category2" />
+ </h:selectOneMenu></div>
+
+
+<div class="col-sm-2 control-label">
+  
+         <h:outputLabel  for="parent_customer">Focus Products:
+         <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" 
+         title="To select more than one product, press shift key while selecting products.">
+         </span> 
+</h:outputLabel>
+     </div>
+  <div class="col-sm-3">
+  
+ <h:selectManyListbox   id="focusproduct"  class="form-control"    >
+ <f:selectItem itemValue="Select" itemLabel="Select" />
+ <f:selectItem itemValue="Product based" itemLabel="Product based" />
+ <f:selectItem itemValue="Crop based" itemLabel="Crop based" />
+ </h:selectManyListbox ></div></div>
+
+
+
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+
+  <h:outputLabel  for="customer_id">Date of Activity: </h:outputLabel>
+  <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Date of Activity" 
+></span>
+</div>
+
+
+<div class="col-sm-3">
+<p:calendar styleClass="calendarClass" id="completiondate" p:placeholder="DD-MM-YYYY" 
+  pattern="dd-MM-yyyy" mask="true" />
+</div>
+
+
+
+
+    <div class="col-sm-2 control-label">
+  
+         <h:outputLabel  for="parent_customer">No of farmers:
+         <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="No of farmers">
+         </span> 
+</h:outputLabel>
+     </div>
+       <div class="col-sm-3">
+ <h:inputText  class="form-control"  placeholder="open field to fill"></h:inputText>
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+<div class="row form-group ">
+    <div class="col-sm-3 control-label">
+  
+         <h:outputLabel  for="parent_customer">Purpose details:
+         <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Purpose details">
+         </span> 
+</h:outputLabel>
+     </div>
+       <div class="col-sm-8">
+ <h:inputTextarea cols="5" rows="5"  class="form-control"   placeholder="open field to fill"></h:inputTextarea>
+
+</div></div>
+
+
+ 
+ 
+
+
+ 
+<div class="row form-group ">
+    <div class="col-sm-3 control-label">
+  
+         <h:outputLabel  for="parent_customer">Farmer Details:<rich:spacer height="1" width="3" />
+         <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Farmer Details">
+         </span> 
+</h:outputLabel>
+     </div>
+       <div class="col-sm-8">
+ <h:inputTextarea cols="5" rows="5"  class="form-control"  placeholder="to caputre name and mob no of 15 farmers"></h:inputTextarea>
+
+</div></div>
+
+
+ <div class="row form-group"> <!-- Nested row ################# -->
+<div class="col-sm-3 control-label">
+<h:outputLabel for="status">Stage:<h:outputText value=" " ></h:outputText></h:outputLabel> 
+<br/>
+</div>
+<div class="col-sm-2">
+<h:selectOneMenu class="form-control input2" >
+<f:selectItem itemLabel="Select " itemValue="#{null}" ></f:selectItem>
+<f:selectItem itemValue="Stage 1" itemLabel="Stage 1" />
+<f:selectItem itemValue="Stage 2" itemLabel="Stage 2" />	
+</h:selectOneMenu> 
+</div>
+
+</div>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="row form-group">
+    
+    <div class="col-sm-3 control-label">
+   
+      <h:outputLabel for="status">Status:<h:outputText value="  " ></h:outputText></h:outputLabel>  
+ 
+  
+  </div>
+  <div class="col-sm-2">
+     <h:selectOneMenu   id="status"  class="form-control"   >
+  
+   	<f:selectItem itemValue="Active" itemLabel="Active" />
+   	<f:selectItem itemValue="Inactive" itemLabel="Inactive" />
+  </h:selectOneMenu> 
+
+
+</div>
+    
+    <div class="col-sm-2 control-label">
+      <h:outputLabel  for="email">Attach file:  
+      <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Attachfile." 
+></span></h:outputLabel></div><p:fileUpload  style="margin-top:4px;" mode="simple"/>
+    
+    </div>
+    
+
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField1">Extra Field 1: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Extra Field Text" id="extraField1" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField2">Extra Field 2: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Extra Field Text" id="extraField2" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField3">Extra Field 3: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Extra Field Number" id="extraField3" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extra_date1">Extra Field 4: </h:outputLabel>
+       </div>
+       <div class="col-sm-2">
+        <p:calendar id="extra_date1"  p:placeholder="DD-MM-YYYY" 
+ style=" border: 0;" pattern="dd-MM-yyyy" mask="true" />
+      </div>   	 
+     
+    </div> 
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<hr></hr>
+
+  <div class="form-group  ">
+   <div class="row col-sm-6 col-sm-offset-3 control-label vinu"> <!-- Nested row ################# -->
+   
+     <div class="col-sm-6 col-xs-5">
+    <h:commandButton style="margin-left:20px;margin-top:0px;"
+     class="btn btn-success btn-block vinu "
+       value="Register"   />
+   </div>
+   
+   <div class="col-sm-6 col-xs-5">
+    <h:commandLink style="margin-left:20px;margin-top:0px;"
+ class="btn btn-primary btn-block vinu"  value="Reset" />
+   </div></div></div>
+
+</h:form>
+</div>
+</div></div>
+
+
+
+
+     
+     
+
+    
+     
+     
+     
+     
+     
+   
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</h:body> 
+
+
+</html>

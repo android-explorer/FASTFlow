@@ -1,0 +1,575 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://primefaces.org/ui">
+      
+      
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+
+
+
+<script>
+$(document).ready(function(){
+    $(".input2").focus(function(){
+        $(this).css("background-color", "#FFFFE0");
+    });
+    $(".input2").blur(function(){
+        $(this).css("background-color", "#f9f9f9");
+    });
+});
+
+</script>
+
+
+<div id="vinod.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+
+
+<style>
+
+
+body {
+   background-image: url("resources/images/agriProduct2.jpeg");
+    background-repeat: no-repeat;
+
+}
+
+
+.jyoti{
+
+
+overflow:auto;
+    height:350px;
+    width:860px;
+    overflow-x: hidden;<!--to hide horizontal scroll bar -->
+    
+   
+    
+}
+
+.border_class_css{
+					
+			        
+				
+ background-color:#fff;
+  margin: 0 auto;
+  
+  border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+  font-family: roboto;
+   margin-bottom:40px;
+   border: .7px solid rgba(0, 0, 0, 0.2);
+	}	
+	
+	
+	
+	
+	
+	
+				
+					
+</style>
+
+<style type="text/css">
+.ui-growl {
+
+top:60px;
+Right:20px;
+width:301px;
+
+}
+</style>
+
+</h:head> 
+<h:body  style="background-color:#f9f9f9;margin-top:30px;"> 
+
+<div class="container  ">
+
+<div id="indexheader">
+<ui:insert name="indexheader">
+<ui:include src="navBar.xhtml" />
+</ui:insert>
+</div>
+
+<!-- -end of header --> 
+<br></br><br></br><br></br>
+<div class="row col-sm-2">
+
+
+
+</div>
+
+
+<div class="row ">
+
+<div class="col-sm-9  border_class_css "  >
+<center><h1 >Product Master</h1></center>
+<br/>
+
+<p:growl id="messages" />
+<h:form  class="form-horizontal " id="myform">
+<p:focus context="myform" closable="false" />
+   <!-- ************************************************************************** -->
+  
+   
+     <!-- ************************************************************************** -->
+
+
+<!-- ******************************************************* -->
+
+<hr/>
+<div class="jyoti" id="vin">
+
+<!-- ******************************************************* -->
+
+
+
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+
+  <h:outputLabel  for="productId">Product Id: </h:outputLabel>
+  <span style="margin-top:0px;"    class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Product Id." 
+></span>
+</div>
+
+
+<div class="col-sm-7">
+        
+        <h:inputText class="form-control input2" id="productId"     disabled="true" readonly="true"
+ a:placeholder="Product Id will be generated when the record has been saved."  
+
+ 
+  /></div></div>
+
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+
+  <h:outputLabel  for="customer_id">Customer Id: </h:outputLabel>
+  <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Customer Id." 
+></span>
+</div>
+
+
+<div class="col-sm-7">
+        
+        <h:inputText class="form-control input2" id="customer_id"   disabled="true" readonly="true"
+ 
+   value="Col123456" />
+
+
+</div>
+</div>
+  <!-- ***************************************************************************************** -->   
+  
+  <!-- ******************************************************* -->
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+
+  <h:outputLabel  for="product_name"><span style="color:red; width:100px" >* </span>Product Name: </h:outputLabel>
+  <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Customer Id." 
+></span>
+</div>
+
+
+<div class="col-sm-7">
+        
+        <h:inputText class="form-control input2" id="product_name"  a:placeholder="Enter Product Name"
+        required="true" requiredMessage="Product name is required."
+ 
+value="#{pmaster1.productName}"  />
+
+
+</div>
+</div>
+  <!-- ***************************************************************************************** -->   
+  
+  
+  
+ <div class="row form-group">
+<div class="col-sm-3 control-label"><h:outputLabel for="type" > Product Type:</h:outputLabel>
+<span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Product Types" 
+></span>
+</div>
+
+<div class="col-sm-7"> <h:inputText class=" form-control input2" a:placeholder="Enter Product Type"    id="type" 
+
+value="#{pmaster1.productType}"   /></div>
+</div>
+  
+   <div class="row form-group">
+<div class="col-sm-3 control-label"><h:outputLabel for="type" > Product Application:</h:outputLabel>
+<span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title=" Product Application" 
+></span>
+</div>
+
+<div class="col-sm-7"> <h:inputText class=" form-control input2" a:placeholder="Product Application"    id="productApplication" 
+
+   /></div>
+</div>
+  
+     <div class="row form-group">
+<div class="col-sm-3 control-label"><h:outputLabel for="type" > Product Usage Constraints:</h:outputLabel>
+<span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title=" Product Usage Constraints" 
+></span>
+</div>
+
+<div class="col-sm-7"> <h:inputText class=" form-control input2" a:placeholder="Product Usage Constraints"    id="productUsageConstraints" 
+
+   /></div>
+</div>
+  
+  
+  <div class="row form-group ">
+    <div class="col-sm-3 control-label">
+  
+         <h:outputLabel  for="parent_customer">Product Description :<rich:spacer height="1" width="3" />
+         <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Product Description">
+         </span> 
+</h:outputLabel>
+     </div>
+       <div class="col-sm-7">
+ <h:inputTextarea cols="8" rows="8" value="#{pmaster1.productDescription}" a:placeholder="Enter Product Description" class="form-control input2"  ></h:inputTextarea>
+
+</div></div>
+
+ <div class="row form-group"> <!-- Nested row ################# -->
+<div class="col-sm-3 control-label">
+<h:outputLabel for="status">Stage:<h:outputText value=" " ></h:outputText></h:outputLabel> 
+<br/>
+</div>
+<div class="col-sm-2">
+<h:selectOneMenu class="form-control input2" >
+<f:selectItem itemLabel="Select " itemValue="#{null}" ></f:selectItem>
+<f:selectItem itemValue="Stage 1" itemLabel="Stage 1" />
+<f:selectItem itemValue="Stage 2" itemLabel="Stage 2" />	
+</h:selectOneMenu> 
+</div>
+
+</div>
+ 
+
+
+ 
+ <div class="row form-group">
+ <div class="col-sm-3 control-label">
+ <h:outputLabel >Status:</h:outputLabel>
+  <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Status">
+         </span><br/></div>
+ <div class="col-sm-2">
+ <h:selectOneMenu   id="status"  class="form-control"    value="#{pmaster1.status}">
+ <f:selectItem itemValue="Active" itemLabel="Active" />
+ <f:selectItem itemValue="Inactive" itemLabel="Inactive" />
+ </h:selectOneMenu></div>
+ 
+<div class="col-sm-2 control-label">
+      <h:outputLabel  for="email">Attach file:  
+      <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Attachfile." 
+></span></h:outputLabel></div><p:fileUpload  style="margin-top:4px;" mode="simple"/>
+
+</div>
+
+
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField1">Extra Field 1: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Extra Field Text" id="extraField1" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField2">Extra Field 2: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Extra Field Text" id="extraField2" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField3">Extra Field 3: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Extra Field Number" id="extraField3" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extra_date1">Extra Field 4: </h:outputLabel>
+       </div>
+       <div class="col-sm-2">
+        <p:calendar id="extra_date1"  p:placeholder="DD-MM-YYYY" 
+ style=" border: 0;" pattern="dd-MM-yyyy" mask="true" />
+      </div>   	 
+     
+    </div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  
+  
+  
+  <hr/>
+
+
+
+
+
+
+  <div class="row form-group ">
+    <div class="row col-sm-6 col-sm-offset-3 ">
+    
+ <div class="col-sm-6 col-xs-6"><h:commandButton action="#{pmaster1.submit()}" value="Register" style="text-decoration:none; color:#fff; margin-left:40px" class="btn fontsize btn-success btn-block"></h:commandButton></div>
+ 
+ 
+  
+    <div class="col-sm-6 col-xs-6"><h:commandButton action="#{pmaster1.reset()}" value="Reset" style="text-decoration:none; color:#fff; margin-left:40px" class="btn fontsize btn-primary btn-block"></h:commandButton></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</h:form></div>
+
+</div>
+</div>
+
+<div style="padding:0px;">
+<h:form class="" style="margin:1.2px;background:white;">
+		<p:dataTable id="meraTable" value="#{pmaster1.listObj}" var="mobile" border="2" resizableColumns="true" 
+			cellspacing="1" cellpadding="1"   
+			editable="true" editMode="cell" 
+reflow="true" scrollable="true" scrollHeight="250" 
+class="table table-striped table-hover table-bordered" style="margin-top:20px;" 
+ paginator="true" rows="25" rowsPerPageTemplate="25,35,50" 
+paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" 
+>
+			
+			
+			
+			
+			
+			
+			<f:facet name="header">
+<div class="row" style="margin: -3px;">
+
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+<span style="font-size:22px;">Manage Product Master Data</span>
+</div> 
+
+<div class="col-sm-2 pull-right" style="margin-right: 20px">
+
+<h:commandLink id="excel">
+<img src="resources/images/Excel.png" class="img-responsive pull-right " alt="Excel" style="width:35px;"></img>
+<p:dataExporter type="xls" target="meraTable" fileName="Prudential&nbsp;Prudential&nbsp;List"  />
+</h:commandLink>
+
+<h:commandLink id="pdf" >
+<img src="resources/images/pdf.png" class="img-responsive pull-right" alt="pdf" style="width:35px;"></img>
+<p:dataExporter type="pdf" target="meraTable" fileName="Prudential&nbsp;Orgmaster&nbsp;List" />
+</h:commandLink>	
+</div>
+
+</div>
+</f:facet> 
+			
+			
+			
+			
+			
+			
+			<p:column filterBy="#{mobile.productId}" sortBy="#{mobile.productId}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" headerText="Product Id" >
+               <h:outputText value="#{mobile.productId}" />
+             </p:column>
+
+			
+			<p:column  headerText="Customer Id" filterBy="#{mobile.customerId}" sortBy="#{mobile.customerId}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.customerId}" />
+             </p:column>
+                
+                <p:column  headerText="Product Name" filterBy="#{mobile.productName}" sortBy="#{mobile.productName}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.productName}" />
+             </p:column>
+                
+                
+               <p:column  headerText="Product Type" filterBy="#{mobile.productType}" sortBy="#{mobile.productType}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.productType}" />
+             </p:column>
+             
+              <p:column  headerText="Status" filterBy="#{mobile.status}" sortBy="#{mobile.status}"  filterStyle="display:true;" 
+	        filterMatchMode="contains" >
+               <h:outputText value="#{mobile.status}" />
+             </p:column>
+                    
+                    </p:dataTable>
+                    
+                    
+                    </h:form>
+     
+     </div>
+
+    
+     
+     
+     
+     
+     
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</h:body> 
+
+
+</html>

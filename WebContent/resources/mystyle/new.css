@@ -1,0 +1,38 @@
+  .ui-growl {
+            
+            top:60px;
+            Right:20px;
+            width:500px;
+            z-index:9999;
+        }
+        
+{background-image: url(vv.jpg);
+
+}
+
+.btn3d {
+    transition:all .08s linear;
+    position:relative;
+    outline:medium none;
+    -moz-outline-style:none;
+    border:0px;
+    margin-right:10px;
+    margin-top:15px;
+}
+.btn3d:focus {
+    outline:medium none;
+    -moz-outline-style:none;
+}
+.btn3d:active {
+    top:9px;
+}
+.btn-success {
+    box-shadow:0 0 0 1px #5cb85c inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #4cae4c, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+    background-color:#5cb85c;
+   
+}
+
+.btn-primary {
+    box-shadow:0 0 0 1px #428bca inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #357ebd, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+    background-color:#428bca;
+}

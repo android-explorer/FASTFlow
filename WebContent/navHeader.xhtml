@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:h="http://java.sun.com/jsf/html"	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" 
+xmlns:ui="http://java.sun.com/jsf/facelets"	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+<ui:composition>
+<h:form>
+<div class="navbar navbar-default navbar-fixed-top top_menu" >
+<div class="container-fluid ">
+<div class="navbar-header">
+<a class= "navbar-brand " href="index.xhtml" style="color:MediumSeaGreen; font-size:32px; font-weight: bold; ">
+<img src="resource/image/C8 logo.jpg" class="img-responsive" alt="C8"></img>
+
+</a>
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+
+</div>
+
+<div class="collapse navbar-collapse margin_menu" >
+<ul class="nav navbar-nav" >
+
+
+<li ><h:link value="Customer Master" style="color:#fff; font-weight: bold;" outcome="customerMaster" /></li>
+<li ><h:link value="Dealer Master" style="color:#fff; font-weight: bold;" outcome="DealerMaster" /></li>
+<li ><h:link value="Agent Master" style="color:#fff; font-weight: bold;" outcome="agentMaster" /></li>
+
+<!-- 
+<li ><a href="faces/index.xhtml" style="color:#fff; font-weight: bold;" >Benefits</a></li> -->
+<!-- 
+<li><a href="faces/aboutus.xhtml" style="color:#fff; font-weight: bold;" >About Us</a></li> -->
+<li class="active" ><h:link value="Sign up" style="color:#fff; font-weight: bold; background: #03C03C; border: 0.5px solid;" outcome="customerMaster" /></li>
+
+</ul>
+<a style="color:#FFF; margin:5px; font-size:24px; font-weight: bold; font-style: italic; text-decoration:none;" class="pull-right">Work smart, Save time</a>
+</div>
+</div>
+</div>
+
+
+<!-- end of top menu -->
+</h:form>
+</ui:composition>
+</h:body>
+</html>

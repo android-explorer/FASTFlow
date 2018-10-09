@@ -1,0 +1,637 @@
+
+<!--  <?xml version='1.0' encoding='UTF-8' ?> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://primefaces.org/ui">
+      
+      
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <!-- Collapse working bcoz of this with jsf h:inputText....check dis link https://stackoverflow.com/questions/26430908/why-doesnt-bootstraps-panel-collapse-work-with-jsf    -->
+ <!-- Collapse working bcoz of this with jsf h:inputText -->
+<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+
+ <!-- scroll on click -->
+
+<!-- Calender libraries check dis link https://www.journaldev.com/3088/primefaces-calendar-component-example-tutorial#getting-started-with-calendar 
+<title>Calendar</title>
+		<script name="jquery/jquery.js" library="primefaces" type=""></script>
+
+
+-->
+
+<div id="vinod.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+<script>
+$(document).ready(function(){
+    $(".input2").focus(function(){
+        $(this).css("background-color", "#FFFFE0");
+    });
+    $(".input2").blur(function(){
+        $(this).css("background-color", "#f9f9f9");
+    });
+});
+
+</script>
+
+<style>
+
+
+
+.vinod{
+
+
+overflow:auto;
+    height:350px;
+    overflow-x: hidden;<!--to hide horizontal scroll bar -->
+    
+   
+    
+}
+
+body {
+   background-image: url("resources/images/kisaan4.jpg");
+    background-repeat: no-repeat;
+
+}
+
+
+.border_class_css{
+					
+			        
+				
+  background-color:#fff;
+    margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  font-family: roboto;
+   margin-bottom:40px;
+   border: .7px solid rgba(0, 0, 0, 0.2);
+				}	
+					
+</style>
+
+
+
+
+
+
+</h:head> 
+<body style="background-color:#f9f9f9;margin-top:90px;"> 
+<div class="container ">
+  
+
+<!-- ****************************************************************************************************** -->
+
+ <div class="row col-sm-2">
+ 
+ </div>
+
+
+
+<div class="row">
+ <div class=" col-sm-9 border_class_css"> <!-- Main Row ************************************* -->
+ <center><h1>Register New  Field Agronomist </h1></center>
+
+
+<!-- <p:growl id="messages" />  -->
+ 
+  <h:form class="form-horizontal" id="myform" >
+<p:focus context="myform" />
+<p:focus context="myform" closable="false" />
+ <!-- ################################################################################################################# -->
+  <!--   <div class="form-group  ">
+   <div class="row col-sm-6 col-sm-offset-3 control-label vinu"> Nested row ################# 
+   
+     <div class="col-sm-6 col-xs-6">
+    <h:commandButton style=""
+     class="btn btn-success btn-block vinu "
+       value="Register"   />
+   </div>
+   
+   <div class="col-sm-6 col-xs-6">
+    <h:commandButton style=""
+ class="btn btn-primary btn-block vinu"  value="Reset" />
+   </div>
+   
+  
+   
+   
+   </div>  Nested row ################# 
+   </div>
+ -->
+<hr></hr>
+
+
+<div class="vinod" id="vin">
+<!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+     
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="first_name"> Field Agronomist  Name: </h:outputLabel>
+       </div>
+       
+        
+       <div class="col-sm-7 ">
+      <div class="row">
+       <div class="col-xs-4">
+     <h:selectOneMenu   style="margin-top:1px;"   class="form-control input2"    >
+  
+  <f:selectItem itemValue="#{null}"  itemLabel="Salutation" />
+  <f:selectItem itemValue="Mr." itemLabel="Mr." />
+   	<f:selectItem itemValue="Ms." itemLabel="Ms." />
+  </h:selectOneMenu> 
+  </div>
+  
+        <div class="col-xs-4 " style="padding:0;margin-left:-14px;" >
+        <h:inputText class="form-control input2"  
+                a:placeholder="First Name" id="first_name"   requiredMessage="Parent org-id is required" />
+       </div>
+       <div class="col-xs-4 " style="padding:0;margin-left:1px;">
+        <h:inputText class="form-control input2"  
+                a:placeholder="Last Name" id="last_name"    requiredMessage="Parent org-id is required" />
+       </div>
+      
+       </div>
+       </div>
+    </div>              <!-- Nested row ################# -->
+
+
+
+<!-- ################################################################################################################# --> 
+
+    <div class="row form-group"> <!-- Nested row ################# -->
+      <div class="col-sm-3 control-label">
+        <h:outputLabel  for="org_id2">Customer Id: </h:outputLabel>
+      </div>
+      <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter Organization Id" id="org_id2" value="15312345" disabled="true" readonly="true"  requiredMessage="Parent org-id is required" />
+      </div>
+    </div>              <!-- Nested row ################# -->
+<!-- ################################################################################################################# --> 
+
+
+      <div class="row form-group"> <!-- Nested row ################# -->
+      <div class="col-sm-3 control-label">
+        <h:outputLabel  for="people_id">Agent Id: </h:outputLabel>
+      </div>
+      <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Agent Id will be generated when the record has been saved." id="people_id"  disabled="true" readonly="true" requiredMessage="Parent org-id is required" />
+      </div>
+    </div>              <!-- Nested row ################# -->
+ 
+ 
+   <!-- ################################################################################################################# --> 
+     
+       
+ <!--     <div class="row form-group">  Nested row ################# 
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="salutation">Salutation: </h:outputLabel>
+       </div>
+       <div class="col-sm-8">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Salutation" id="salutation" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>               Nested row ################# 
+ --> 
+
+  
+
+    <!-- ################################################################################################################# --> 
+     
+     <!--   
+      <div class="row form-group">  Nested row ################# 
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="last_name">Last Name: </h:outputLabel>
+       </div>
+       <div class="col-sm-8">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Last Name" id="last_name" value="#{user.name}"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              Nested row #################   --> 
+
+  
+    <!-- ################################################################################################################# --> 
+     
+       
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="Employee_email_id">Agent Email Id: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Eg. abc@xyz.com" id="employee_email_id" 
+                 validatorMessage="Invalid Email-id"
+                requiredMessage="Employee email-id is required"><f:validateRegex
+                	pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" /> 
+                	</h:inputText>
+                	
+                	<h:message for="employee_email_id"  style="color:red;margin:8px;"/>
+       </div>
+    </div>              <!-- Nested row ################# -->
+     <!-- ################################################################################################################# --> 
+    
+     <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="employee_number">Agent Number: </h:outputLabel>
+       </div>
+       <div class="col-sm-7 input2">
+        <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Enter Agent Number" id="employee_number"  requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+     
+         <!-- ################################################################################################################# --> 
+     
+       
+     
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="department">Department: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter Department " id="department"   requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+         <!-- ################################################################################################################# --> 
+         
+         
+            
+      <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="telephone">Telephone: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Eg. 0124-254854" id="telephone"    requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+         
+      <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="mobile_phone_number">Mobile: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+         <div class="row" >
+          
+  <div class="col-sm-12 col-xs-12" >
+        <h:inputText style="padding:0;" class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="   Eg. +91-9988838850" id="mobile_phone_number"    requiredMessage="Parent org-id is required" />
+           </div>
+       </div>
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+       
+         <!-- ################################################################################################################# --> 
+     
+       
+       <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="alternate_mobile_phone_number">Alternate Mobile: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+         <div class="row" >
+         
+  <div class="col-sm-12 col-xs-12"  >
+        <h:inputText style="padding:0;" class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="   Eg. +91-9988838850" id="alternate_mobile_phone_number"  requiredMessage="Parent org-id is required" />
+           </div>
+       </div>
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+       
+         <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="line_manager_name">Line Manager Name: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter Line Manager Name" id="line_manager_name"    requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+   <!-- ################################################################################################################# --> 
+    
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="line_manager_id">Line Manager Id: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter Line Manager Id" id="line_manager_id"    requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+  
+  
+     <!-- ################################################################################################################# --> 
+     
+       
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="line_manager_email_id">Line Manager Email Id: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Eg. abc@xyz.com" id="line_manager_email_id" validatorMessage="Invalid Email-id" 
+                 requiredMessage="Line Manager email-id is required">
+                <f:validateRegex
+                	pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$"
+                	 /></h:inputText>
+                	 <h:message for="line_manager_email_id"  style="color:red;margin:8px;"/>
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+     
+     
+  <div class="row form-group"> <!-- Nested row ################# -->
+<div class="col-sm-3 control-label">
+<h:outputLabel for="status">Stage:<h:outputText value=" " ></h:outputText></h:outputLabel> 
+<br/>
+</div>
+<div class="col-sm-2">
+<h:selectOneMenu class="form-control input2" >
+<f:selectItem itemLabel="Select " itemValue="#{null}" ></f:selectItem>
+<f:selectItem itemValue="Stage 1" itemLabel="Stage 1" />
+<f:selectItem itemValue="Stage 2" itemLabel="Stage 2" />	
+</h:selectOneMenu> 
+</div>
+
+</div>
+      
+   
+      <!-- ################################################################################################################# -->
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+      <div class="col-sm-3 control-label">
+        <h:outputLabel for="status">Status:<h:outputText value="  " ></h:outputText></h:outputLabel>  
+        <br/>
+     </div>
+      <div class="col-sm-2">
+        <h:selectOneMenu     class="form-control input2"    >
+        
+   	    <f:selectItem itemValue="Active" itemLabel="Active" />
+   	    <f:selectItem itemValue="Inactive" itemLabel="Inactive" />		
+        </h:selectOneMenu> 
+     </div>
+     
+     <div class="col-sm-2 control-label">
+      <h:outputLabel  for="email">Attach file:  
+      <span style="margin-top:0px;"  class=" glyphicon glyphicon-info-sign" data-toggle="tooltip" title="Attachfile." 
+></span></h:outputLabel></div><p:fileUpload  style="margin-top:4px;" mode="simple"/>
+   </div> <!-- Nested row ################# -->
+  
+  
+    
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField1">Extra Field 1: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Extra Field Text" id="extraField1" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField2">Extra Field 2: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Extra Field Text" id="extraField2" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+      <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extraField3">Extra Field 3: </h:outputLabel>
+       </div>
+       <div class="col-sm-7">
+        <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Extra Field Number" id="extraField3" >
+                </h:inputText>
+                	 
+       </div>
+    </div>              <!-- Nested row ################# -->
+  
+  
+  
+  
+    <div class="row form-group"> <!-- Nested row ################# -->
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="extra_date1">Extra Field 4: </h:outputLabel>
+       </div>
+       <div class="col-sm-2">
+        <p:calendar id="extra_date1"  p:placeholder="DD-MM-YYYY" 
+ style=" border: 0;" pattern="dd-MM-yyyy" mask="true" />
+      </div>   	 
+     
+    </div>              <!-- Nested row ################# -->
+     <!-- ################################################################################################################# --> 
+     
+     <!--   
+      <div class="row form-group"> Nested row ################# 
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="created_date">Created Date: </h:outputLabel>
+       </div>
+       <div class="col-sm-8">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Created Date " id="created_date" value="15/02/2018" readonly="true"  required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>               Nested row ################# 
+  
+  
+  
+      ################################################################################################################# 
+     
+      <div class="row form-group">  Nested row ################# 
+       <div class="col-sm-3 control-label">
+        <h:outputLabel  for="created_by">Created By: </h:outputLabel>
+       </div>
+       <div class="col-sm-8">
+        <h:inputText class="form-control" 
+                a:placeholder="Enter Created By " id="created_by" value="Vinod" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+       </div>
+    </div>              Nested row ################# 
+  
+    
+     ################################################################################################################# 
+      
+      <div class="row form-group"> Nested row ################# 
+        <div class="col-sm-3 control-label">
+         <h:outputLabel  for="last_updated_by">Last Updated By: </h:outputLabel>
+        </div>
+        <div class="col-sm-8">
+         <h:inputText class="form-control" 
+                a:placeholder="Enter Last Updated By " id="last_updated_by" value="Vinod" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+        </div>
+      </div>             Nested row ################# 
+  
+       ################################################################################################################# 
+     
+      <div class="row form-group">  Nested row ################# 
+        <div class="col-sm-3 control-label">
+         <h:outputLabel  for="extra_field1">Extra Field1: </h:outputLabel>
+        </div>
+        <div class="col-sm-8">
+         <h:inputText class="form-control" 
+                a:placeholder="Enter Extra Field1 " id="extra_field1" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+        </div>
+      </div>               Nested row ################# 
+  
+  
+      ################################################################################################################# 
+      
+      <div class="row form-group">  Nested row ################# 
+        <div class="col-sm-3 control-label">
+         <h:outputLabel  for="extra_field2">Extra Field2: </h:outputLabel>
+        </div>
+        <div class="col-sm-8">
+         <h:inputText class="form-control" 
+                a:placeholder="Enter Extra Field2 " id="extra_field2" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+        </div>
+      </div>              Nested row ################# 
+  
+  -->
+                       
+  <!-- 
+    ################################################################################################################# 
+   <div class="form-group">
+   <div class="row col-sm-7 col-sm-offset-3 control-label">  Nested row ################# 
+     <div class="col-sm-6 col-xs-6">
+    <h:commandButton style="margin-bottom:8px;margin-top:5px;" class="btn btn-success btn-block "  value="Save" type="submit" action="#{user.goLoginPage}" />
+   </div>
+   
+   <div class="col-sm-6 col-xs-6 ">
+    <h:commandButton style="margin-bottom:8px;margin-top:5px;" class="btn btn-primary btn-block "  value="Cancel" type="submit" action="#{user.goLoginPage}" />
+   </div>
+   
+   
+   
+   
+   </div>  Nested row ################# 
+   </div>
+  
+  
+   -->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  <hr></hr>
+ <div class="row form-group  ">
+   <div class="col-sm-6 col-sm-offset-3  vinu"> <!-- Nested row ################# -->
+   
+     <div class="col-sm-6 col-xs-6">
+    <h:commandButton style="margin-bottom:8px;"
+     class="btn btn-success btn-block vinu "
+       value="Register"   />
+   </div>
+   
+   <div class="col-sm-6 col-xs-6">
+    <h:commandButton style="margin-bottom:8px"
+ class="btn btn-primary btn-block vinu"  value="Reset" />
+   </div>
+   
+   
+   
+   
+   </div> <!-- Nested row ################# -->
+   </div>
+
+</h:form>
+</div>
+</div>
+ <!-- Main row end ****************************** -->
+<!-- ******************************************************************************************************************* -->
+
+
+<div class="row col-sm-1" >
+
+</div>
+
+
+
+<!--  
+<div class="col-sm-4 .d-none .d-sm-block .d-md-none">
+
+<img style="margin-right:0px;margin-top:50px;min-width=600px;min-height:400px;opacity:0.8" src="resources/images/green.png" class="img-thumbnail img-responsive pull-right d-sm-none d-md-block " alt="Cinque Terre"   > </img> 
+
+
+</div>
+   -->
+
+
+
+</div>
+
+
+
+
+</body> 
+</html>

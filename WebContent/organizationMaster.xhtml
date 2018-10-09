@@ -1,0 +1,1026 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:ui="http://java.sun.com/jsf/facelets" 
+  xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+ 	xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:rich="http://primefaces.org/ui">
+      
+      
+<h:head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>   <!-- Collapse working bcoz of this with jsf h:inputText....check dis link https://stackoverflow.com/questions/26430908/why-doesnt-bootstraps-panel-collapse-work-with-jsf    -->
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> <!-- Collapse working bcoz of this with jsf h:inputText -->
+<link rel="stylesheet" href="resources/css/bootstrap.css"/>
+<script type="text/javascript" src="resources/js/bootstrap.js"/>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script> <!-- scroll on click -->
+
+<!-- Calender libraries check dis link https://www.journaldev.com/3088/primefaces-calendar-component-example-tutorial#getting-started-with-calendar 
+<title>Calendar</title>
+		<script name="jquery/jquery.js" library="primefaces" type=""></script>
+
+
+-->
+
+
+<script>
+$(document).ready(function(){
+    $(".input2").focus(function(){
+        $(this).css("background-color", "#FFFFE0");
+    });
+    $(".input2").blur(function(){
+        $(this).css("background-color", "#f9f9f9");
+    });
+});
+
+</script>
+
+<!--  
+<script> src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#click").click(function(){
+        $(".vinod").scrollTop(100);
+    });
+});
+</script>
+-->
+
+
+
+
+
+
+
+
+
+<div id="vinod.xhtml">
+ <ui:insert name="navBar_vin">
+		<ui:include src="navBar.xhtml" />
+	</ui:insert></div>
+
+
+
+
+<style>
+
+.vinod{
+
+
+overflow:auto;
+    height:453px;
+    overflow-x: hidden;<!--to hide horizontal scroll bar -->
+    
+   
+    
+}
+
+
+
+
+.border_class_css{
+					
+			        
+				
+ background-color:#fff;
+  margin: 0 auto;
+  
+  border-radius: 8px;
+  box-shadow: 6px 4px 3px rgba(0, 0, 0, 0.5);
+  overflow: hidden; 
+  font-family: roboto;
+   margin-bottom:40px;
+   border: .7px solid rgba(0, 0, 0, 0.2);
+	}				
+					
+</style>
+
+
+</h:head> 
+<h:body  style="background-color:#f9f9f9;"> 
+
+<div class="container  ">
+
+
+<div class="row col-sm-2">
+
+
+
+</div>
+
+
+<div class="row ">
+
+<div class="col-sm-9  border_class_css "  >
+<center><h1 >Register New Organization</h1></center>
+<br/>
+<p:growl id="messages" />
+<h:form  class="form-horizontal " id="myform">
+
+<p:focus context="myform" closable="false" />
+
+
+
+<div class="row form-group">
+
+
+
+<div class="row col-sm-7 col-sm-offset-3 ">
+ 
+   <div class="col-sm-6 col-xs-6">
+    <h:commandButton  style="margin-top:5px;" class="btn btn-success btn-block"  value="Register" type="submit" action="#{orgMaster.save}" />
+   </div>
+   
+   <div class="col-sm-6 col-xs-6">
+    <h:commandButton style="margin-top:5px;" class="btn btn-primary btn-block"  value="Reset" type="submit"   action="#{orgMaster.reset}" />
+   </div>
+   
+   
+   
+   
+   
+   </div>
+
+</div>
+   <hr style="color:blue;margin-top:-2px;"></hr>
+
+<div class="vinod" id="vin">
+
+<!-- ******************************************************* -->
+<div class="row form-group">
+<div class="col-sm-3 control-label">
+
+  <h:outputLabel  for="org_id">Organization Id: </h:outputLabel>
+</div>
+
+
+<div class="col-sm-7">
+
+
+  
+  
+ 
+     
+        
+        <h:inputText class="form-control"  disabled="true" 
+                a:placeholder="Organization Id will be generated when the record has been saved."  id="org_id"  readonly="true"   />
+
+    
+    </div>
+   
+     </div>
+  <!-- ***************************************************************************************** -->   
+  
+  <div class="row form-group ">
+    <div class="col-sm-3 control-label">
+  
+         <h:outputLabel  for="org_id"> Parent Organization :<rich:spacer height="1" width="3" /><span   title="Select the parent department or company or group within your enterprise.
+This will be used to roll-up as well as cascade down information within the enterprise." 
+  style="margin-top:2px;margin-left:0px" class=" glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+     </div>
+     
+     <div class="col-sm-7">
+     
+     
+       <h:inputText class="form-control input2"
+                a:placeholder="Enter Parent Organization Id" id="parent_org_id" value="#{orgMaster.parentOrganization}"  requiredMessage="Parent org-id is required" />
+   
+    </div>
+    </div>
+     
+   <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+   
+    <!-- ***************************************************************************************** -->   
+  
+  <div class="row form-group ">
+    <div class="col-sm-3 control-label">
+  
+         <h:outputLabel  for="createdByName"><span style="color:red; width:100px" >* </span> Created By :<rich:spacer height="1" width="3" /> </h:outputLabel>
+     </div>
+     
+     <div class="col-sm-7">
+     
+     
+       <h:inputText class="form-control input2"
+                a:placeholder="Enter your name" id="createdByName" value="#{orgMaster.createdByName}" required="true" requiredMessage="Parent org-id is required" />
+   
+    </div>
+    </div>
+     
+   <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+   
+   
+    <!-- *******************************************************  -->
+    
+   
+    <!-- *******************************************************  -->
+    
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+  
+      <h:outputLabel   for="org_title"><span style="color:red; width:100px" >* </span>Organization Title: </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter Organization Title" id="org_title" value="#{orgMaster.organizationTitle}" required="true"
+                  requiredMessage="Organization title is required." validatorMessage="*Please enter minimum 4 characters"> 
+               <f:validateLength minimum="4"  /> </h:inputText>
+               
+               
+ <!--     <p:message for="org_title" display="text" style="color:red;margin:8px;"/> -->
+    
+     <h:message for="org_title"  style="color:red;margin:8px;"/> 
+    
+   
+   
+    </div>
+    </div>
+    <!-- ****************************************************************** -->
+    
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+  
+      <h:outputLabel  style="margin-top:0px;margin-right:3px"  for="org_type1" ><span style="color:red; width:100px" >* </span>Organization Type:<rich:spacer height="1" width="3" /><span   
+ title="Holding Company> Enterprise> Group> Region> Division> Section> Unit" style="margin-top:2px;margin-left:0px" class="pull-right glyphicon glyphicon-info-sign"></span></h:outputLabel>  
+  <br/>
+  </div>
+  
+  <div class="col-sm-7 ">
+     <h:selectOneMenu  id="org_type1" required="true"  requiredMessage="Please select organization type." class="form-control"    value="#{orgMaster.organizationType}">
+  
+   <f:selectItem itemValue="#{null}"  itemLabel="Select" /> 
+  <f:selectItem itemValue="Holding Company" itemLabel="Holding Company"  />
+   	<f:selectItem itemValue="Enterprise" itemLabel="Enterprise" />
+  	<f:selectItem itemValue="Group" itemLabel="Group" />
+   	<f:selectItem itemValue="Region" itemLabel="Region" />
+   	<f:selectItem itemValue="Division" itemLabel="Division" />
+   	<f:selectItem itemValue="Section" itemLabel="Section" />
+   	<f:selectItem itemValue="Unit" itemLabel="Unit" />
+   
+  </h:selectOneMenu> 
+
+<h:message for="org_type1"  style="color:red;margin:8px;"/>
+</div>
+
+</div>
+   
+   <!-- ************************************************************************* -->
+   
+   
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label ">
+
+
+
+        <h:outputLabel   for="org_description"><span style="color:red; width:100px" >* </span>Organization Description: </h:outputLabel>
+     </div>
+     
+   <div class="col-sm-7">     
+        <h:inputTextarea cols="8" rows="8"    class="form-control input2" 
+                a:placeholder="Please Describe Organization" id="org_description" value="#{orgMaster.organizationDescription}" required="true" requiredMessage="Organization description is required." />
+  <h:message for="org_description"  style="color:red;margin:8px;"/>
+    
+    </div>
+    
+   </div>
+   
+   
+   <!-- ************************************************************************************ -->
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel for="website">Website: </h:outputLabel>
+       </div>  
+        
+        <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="E.g, www.example.com" id="website" value="#{orgMaster.website}"  requiredMessage="Parent org-id is required" />
+    </div>
+    
+  
+    </div>
+ 
+    <!-- ********************************************************************************** -->
+    
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+
+         <h:outputLabel  for="telephone">Telephone: </h:outputLabel>
+         
+         </div>
+         <div class="col-sm-7">
+       <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Eg. (609) 603-9010" id="telephone" value="#{orgMaster.telephone}"  requiredMessage="Parent org-id is required" />
+ 
+    </div>
+    </div>
+ 
+   <!-- ************************************************************************************************************* -->
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel style="margin-right:3px;"  for="fax">Fax: </h:outputLabel>
+      </div>
+      
+      <div class="col-sm-7">  
+        <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Eg. +1-212-9876543" id="fax" value="#{orgMaster.fax}"   requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+    </div>
+    <!-- ************************************************************************************************************** -->
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+    
+         <h:outputLabel  style="margin-right:-4px;" for="facebook">Facebook:  </h:outputLabel>
+         </div>
+         
+         <div class="col-sm-7">
+       <h:inputText class="form-control input2" 
+                a:placeholder="Enter organization's facebook profile url." id="facebook" value="#{orgMaster.facebook}"  requiredMessage="Parent org-id is required" />
+  
+    </div>
+    </div>
+   
+   <!-- ********************************************************************************************************** -->
+   
+   
+   <!-- ************************************************************************************************************** -->
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+    
+         <h:outputLabel  style="margin-right:-4px;" for="twitter">Twitter:  </h:outputLabel>
+         </div>
+         
+         <div class="col-sm-7">
+       <h:inputText class="form-control input2" 
+                a:placeholder="Enter organization's twitter profile url." id="twitter" value="#{orgMaster.twitter}"  requiredMessage="Parent org-id is required" />
+  
+    </div>
+    </div>
+   
+   <!-- ********************************************************************************************************** -->
+   
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+        <h:outputLabel  for="office_name">Office name:  </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText class="form-control input2" 
+                a:placeholder="Enter office name" id="office_name" value="#{orgMaster.officeName}"   requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+    </div>
+    
+    <!-- ************************************************************************************************************* -->
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+    
+         <h:outputLabel  for="office_number">Office number:<rich:spacer height="1" width="3" /> </h:outputLabel>
+         </div>
+         
+         <div class="col-sm-7">
+         
+       <h:inputText class="form-control input2" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Enter office number" id="office_number" value="#{orgMaster.officeNumber}"  requiredMessage="Parent org-id is required" />
+    
+    </div>
+    </div>
+   
+   <!-- ********************************************************************************************************************** -->
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel  for="address">Address: </h:outputLabel>
+        </div>
+     
+        <div class="col-sm-7">
+        <div class="row">
+          
+        <div class="col-sm-12">
+         <h:inputText class="form-control input2" style="margin-top:2px;"
+                a:placeholder="Address Line 1" id="address" value="#{orgMaster.addressLine1}"  requiredMessage="Parent org-id is required" />
+ </div>
+  
+ <!--   <div class="col-sm-6">
+  
+        <h:inputText class="form-control" style="margin-top:2px;margin-left:0px;"
+                a:placeholder="Building" id="address1" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+     
+        </div>
+        -->
+         </div>
+        
+       </div>
+     
+     
+        
+        
+        
+        
+     
+     <!-- ###### -->
+     
+      
+        <div class="col-sm-7 col-sm-offset-3">
+        <div class="row">
+          
+        <div class="col-sm-12 ">
+         <h:inputText class="form-control input2" style="margin-top:2px;"
+                a:placeholder="Address Line 2" id="address3" value="#{orgMaster.addressLine2}"   requiredMessage="Parent org-id is required" />
+ </div>
+  
+  <!-- <div class="col-sm-6 ">
+  
+        <h:inputText class="form-control" style="margin-top:2px;"
+                a:placeholder="Landmark" id="address4" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+     
+        </div>  -->
+         </div>
+        
+       </div>
+     
+      <!-- ######### -->
+      
+  
+        <div class="col-sm-7 col-sm-offset-3 ">
+        <div class="row">
+          
+        <div class="col-sm-6 ">
+         <h:inputText  class="form-control input2" style="margin-top:2px;" onkeypress="if( (event.which &lt; 48 || event.which &gt; 57) ) return false;"
+                a:placeholder="Postal code" id="address5" value="#{orgMaster.postalCode}"  requiredMessage="Parent org-id is required" />
+ </div>
+  
+  <div class="col-sm-6" >
+  
+        <h:inputText class="form-control input2" style="margin-top:2px;"
+                a:placeholder="City" id="address6" value="#{orgMaster.city}"   requiredMessage="Parent org-id is required" />
+     
+        </div>
+         </div>
+        
+       </div>
+     <!-- ####################################### -->
+     
+    
+        <div class="col-sm-7 col-sm-offset-3 ">
+        <div class="row" >
+          
+        <div class="col-sm-6  " >
+         <h:inputText  class="form-control input2" style="margin-top:2px;"
+                a:placeholder="State" id="address7" value="#{orgMaster.state}"   requiredMessage="Parent org-id is required" />
+ </div>
+  
+  <div class="col-sm-6" >
+  
+        <h:inputText  class="form-control input2"  style="margin-top:2px;"
+                a:placeholder="Country" id="address8" value="#{orgMaster.country}"   requiredMessage="Parent org-id is required" />
+     
+        </div>
+         </div>
+        
+       </div>
+     <!-- ########## -->
+      <!--  
+      
+        <div class="col-sm-7 col-sm-offset-3 ">
+        <div class="row">
+          
+        <div class="col-sm-6 ">
+         <h:inputText  class="form-control" style="margin-top:2px;"
+                a:placeholder="Country" id="address9" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+ </div>
+  
+  <div class="col-sm-6">
+  
+        <h:inputText style="margin-top:2px;" class="form-control" 
+                a:placeholder="Region" id="address10" value="#{user.favCoffee1}"  required="true" requiredMessage="Parent org-id is required" />
+     
+        </div>
+         </div>
+        
+       </div>
+     -->
+     <!-- ############### -->
+     
+      
+    
+    
+    
+    
+   
+    </div>
+   
+    <!-- ************************************************************************* -->
+   
+    
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="organization_chief">Organization Chief:<rich:spacer height="1" width="1" /> <span   title="Please select the senior most person of the organization or department." 
+ style="margin-top:1px;margin-left:-5px" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7 ">
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Organization Chief" id="organization_chief" value="#{orgMaster.organizationChief}" requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+    </div>
+    
+    <!-- ******************************************************************** -->
+   
+   <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="chief_risk_officerz">Chief Risk Officer:<rich:spacer height="1" width="1" /> <span   title="After defining Roles and associating specific persons , Please select the senior most person who is responsible for governance of all risks. This role handles strategic level vision and empowerment." 
+ style="margin-top:1px;margin-left:-5px" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7 ">
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Chief Risk Officer" id="chief_risk_officerz" value="#{orgMaster.chiefRiskOfficer}"  requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+    </div>
+    
+    <!-- ******************************************************************** -->
+    <div class="row form-group">
+    <div class="col-sm-3 control-label">
+    
+        <h:outputLabel for="risk_manager">Risk Manager:<rich:spacer height="1" width="3" /> <span   title="Please select a person for this role which handles tactical level responsibilities for Risk Management. This role ensures that risk categories have specific owners and they are assigned relevant risks for analysis and action planning." 
+ style="margin-top:2px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span></h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Risk Manager" id="risk_manager" value="#{orgMaster.riskManager}"  requiredMessage="Parent org-id is required" />
+ 
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+   </div>
+   
+   
+   
+   
+    <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel for="risk_cordinator">Risk Cordinator:<rich:spacer height="1" width="1" /> <span   title="After defining Roles and associating specific persons ,Please select a person for this role which handles operational level responsibilities for Risk Management. This role ensures focuses on definition and follow-up of actions related to identified risks." 
+ style="margin-top:2px; margin-left:-2px;" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Risk Cordinator" id="risk_cordinator" value="#{orgMaster.riskCordinator}"  requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+   <!-- ******************************************************************************************* -->
+   
+   
+  
+   <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group">
+    
+    <div class="col-sm-3 control-label">
+   
+      <h:outputLabel for="status">Status:<h:outputText value="  " ></h:outputText></h:outputLabel>  
+  <br/>
+  
+  </div>
+  <div class="col-sm-2">
+     <h:selectOneMenu   id="status"  class="form-control"    value="#{orgMaster.status}">
+  
+   	<f:selectItem itemValue="Active" itemLabel="Active" />
+   	<f:selectItem itemValue="Inactive" itemLabel="Inactive" />
+  </h:selectOneMenu> 
+
+
+</div>
+    
+    
+    
+    </div>
+    
+    <!-- ************************************************************************************ -->
+   
+   <!--  
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel style="margin-right:-4px;" for="created_date">Created Date: </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7 ">
+        
+        <h:inputText     class="form-control" 
+                a:placeholder="Enter created date" id="created_date" value="02/07/2018" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+   </div>
+   
+    ************************************************************************************ 
+    
+  
+     ************************************************************************************ 
+   
+   
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel style="margin-right:-4px;" for="created_by">Created By: </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText     class="form-control"  readonly="true"
+                a:placeholder="Enter created by" id="created_by" value="Vinod"  required="true" requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+    ************************************************************************************ 
+   
+     ************************************************************************************ 
+   
+   
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel style="margin-right:-4px;" for="Last_updated_on">Last Update On: </h:outputLabel>
+        
+        </div>
+        
+        <div class="col-sm-7">
+        <h:inputText     class="form-control" 
+                a:placeholder="Enter last updated on" id="last_updated_on" value="05/12/2018" readonly="true" required="true" requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+   </div>
+   
+    ************************************************************************************ 
+   
+   
+     ************************************************************************************ 
+   
+   
+   
+    <div class="row form-group">
+<div class="col-sm-3 control-label">
+
+
+ 
+        <h:outputLabel style="margin-right:-4px;" for="Last_updated_by">Last Update By: </h:outputLabel>
+      </div>
+      
+      <div class="col-sm-7">  
+        <h:inputText     class="form-control" 
+                a:placeholder="Enter last updated by" id="last_updated_by" value="23/05/2018" required="true" readonly="true" requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+   </div>
+   
+    ************************************************************************************ 
+   
+ -->
+ 
+ 
+    <!-- ************************************************************************************ -->
+ 
+    
+   
+
+   
+   <!-- **************************************************************************************** -->
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ 
+   
+   
+   
+   
+   <!-- PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP -->
+   <div class="row col-sm-3 col-sm-offset-1">
+   <a           id="click"      type="button"  data-toggle="collapse" data-target=".friend" ><span style="color:#428bca; cursor: pointer;text-decoration:underline;margin-bottom:3px">Advanced Fields:</span>
+</a>
+
+
+   </div>
+   
+    <!-- ************************************************************************************ -->
+   
+   <br/>
+   
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="risk_threshold1z">Risk Threshold1:<rich:spacer height="1" width="1" /><span></span> <span   title="This level of Risk Weight is of importance to operational staff. All risks above this level impact their objectives." 
+ style="margin-top:1px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7 ">
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Risk Threshold1" id="risk_threshold1z" value="#{orgMaster.riskThreshold1}" required="false" requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+   <!-- ******************************************************************************************* -->
+   
+   <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="risk_threshold2b">Risk Threshold2:<rich:spacer height="1" width="3" /><span></span><span   title="This level of Risk Weight is of importance to Supervisory staff. All risks above this level impact their objectives." 
+ style="margin-top:1px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span></h:outputLabel>
+     </div>
+     
+     <div class="col-sm-7"> 
+        <h:inputText class="form-control input2"
+                a:placeholder="Enter Risk Threshold2" id="risk_threshold2b" value="#{orgMaster.riskThreshold2}" required="false" requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+   <!-- ******************************************************************************************* -->
+   
+   
+   <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="risk_threshold3c">Risk Threshold3:<rich:spacer height="1" width="3" /><span></span><span   title="This level of Risk Weight is of importance to Managerial staff. All risks above this level impact their objectives." 
+ style="margin-top:1px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        
+        </div>
+        
+        <div class="col-sm-7 ">
+        
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Risk Threshold3" id="risk_threshold3c" value="#{orgMaster.riskThreshold3}" required="false" requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+   <!-- ******************************************************************************************* -->
+   
+   
+   <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel  for="risk_threshold4d">Risk Threshold4:<rich:spacer height="1" width="0" /><span> </span><span   title="This level of Risk Weight is of importance to General managers and vice -president level of executive staff. All risks above this level impact their objectives." 
+ style="margin-top:1px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Risk Threshold4" id="risk_threshold4d" value="#{orgMaster.riskThreshold4}" required="false" requiredMessage="Parent org-id is required" />
+   
+    
+    </div>
+   </div>
+   
+   <!-- ******************************************************************************************* -->
+   
+   
+   <!-- ************************************************************************************ -->
+   
+   
+   
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label ">
+
+
+  
+        <h:outputLabel for="risk_threshold5e">Risk Threshold5:<rich:spacer height="1" width="0" /><span> </span><span   title="This level of Risk Weight is of importance to Board of Directors. All risks above this level impact their objectives." 
+ style="margin-top:1px; margin-left:0px;" class="pull-right glyphicon glyphicon-info-sign"></span> </h:outputLabel>
+        </div>
+        
+        <div class="col-sm-7">
+        
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Enter Risk Threshold5" id="risk_threshold5e" value="#{orgMaster.riskThreshold5}" required="false" requiredMessage="Parent org-id is required" />
+    
+    
+    </div>
+   </div>
+   
+   <!-- ************************************************************************************ -->
+    <!-- ************************************************************************************ -->
+ 
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+
+        <h:outputLabel style="margin-right:-4px;" for="extra1sszaq">Extra Field1: </h:outputLabel>
+      
+      </div>
+      
+      <div class="col-sm-7">
+        
+        <h:inputText     class="form-control input2" 
+                a:placeholder="Extra field1" id="extra1sszaq" value="#{orgMaster.extraField1}" required="false" requiredMessage="Parent org-id is required" />
+
+    
+    </div>
+   </div>
+   
+   <!-- ************************************************************************************ -->
+  
+  
+  
+  
+    <!-- ************************************************************************************ -->
+ 
+    <div class="row form-group friend collapse">
+<div class="col-sm-3 control-label">
+
+
+  
+        <h:outputLabel style="margin-right:-1px;" for="extra2zs">Extra Field2:</h:outputLabel>
+   
+   </div>
+   
+   <div class="col-sm-7">
+       
+    
+        
+        <h:inputText     class="form-control input2"  
+                a:placeholder="Extra field2" id="extra2zs" value="#{orgMaster.extraField2}" requiredMessage="Parent org-id is required" />
+
+      
+    </div>
+   </div>
+
+<!-- ************************************************************************************************ -->
+<br/>
+<br/>
+</div>   <!-- vinod ending -->
+
+
+
+<!-- PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP -->
+   
+   <!-- buttons removed -->
+   
+   
+    
+
+
+
+</h:form>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<!--  
+<div class="col-sm-5">
+<br></br>
+<img style="margin-right:0px;" src="resources/images/rsk.jpg" class="img-thumbnail img-responsive pull-right" alt="Cinque Terre"   > </img> 
+
+
+</div>
+
+-->
+</div>
+
+
+
+<div class="row col-sm-1" >
+
+<!-- CALENDER PRIMEFACES TAG 
+<p:calendar value="#{calendarManagedBean.date}">
+				<p:ajax event="dateSelect" listener="#{calendarManagedBean.dateSelectedAction}"></p:ajax>
+			</p:calendar>  -->
+
+</div>
+
+
+
+
+<!-- 
+
+<div class="row ">
+<div class="col-sm-6 col-sm-offset-6 ">
+
+ <img src="resources/images/risk__2.jpg" class="img-thumbnail img-responsive" alt="Cinque Terre" style="margin-top:-2795px;"> </img> -->
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</h:body> 
+
+
+</html>

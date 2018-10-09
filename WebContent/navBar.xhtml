@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:h="http://java.sun.com/jsf/html"	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough" 
+xmlns:ui="http://java.sun.com/jsf/facelets"	xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<h:head>
+
+</h:head>
+<h:body>
+<ui:composition>
+
+<script type="text/javascript">
+$(document).ready(function () {
+var url = window.location;
+// Will only work if string in href matches with location
+$('ul.nav a[href="' + url + '"]').parent().addClass('active');
+
+// Will also work for relative and absolute hrefs
+$('ul.nav a').filter(function () {
+return this.href == url;
+}).parent().addClass('active').parent().parent().addClass('active');
+});
+</script>
+
+<h:form>
+
+
+
+
+<div class="navbar navbar-invers navbar-fixed-top top_menu  navbar-default  "  style="background: #7ea4b3">
+<div class="container-fluid ">
+<div class="navbar-header">
+<img  src="resources/images/IMG-20180927-WA0016.jpg" class="img-responsive img-thumbnail" alt="collabor8" 
+style="float:left;width:80px;height:40px;margin-top:5px;" ></img>
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+
+</div>
+
+<div class="collapse navbar-collapse margin_menu" >
+
+<ul class="nav navbar-nav" >
+
+
+<li><h:link value="Field Agronomist " style="color:#fff; font-weight: bold;" outcome="agentMaster" /></li>
+<li ><h:link value="Customer Master" style="color:#fff; font-weight: bold;" outcome="customerMaster" /></li>
+<li><h:link value="Dealer Master " style="color:#fff; font-weight: bold;" outcome="DealerMaster" /></li>
+<li ><h:link value="Farmer Interactions" style="color:#fff; font-weight: bold;" outcome="interactionMaster" /></li>
+<li ><h:link value="Product Master" style="color:#fff; font-weight: bold;" outcome="productMaster" /></li>
+
+<li><h:link value="Individual Farmer Contact" style="color:#fff; font-weight: bold;" outcome="Individualfarmercontact.xhtml" /></li>
+<li><h:link value="Farmer Meeting" style="color:#fff; font-weight: bold;" outcome="farmerMeeting.xhtml" /></li>
+<li><h:link value="Catalogue Master" style="color:#fff; font-weight: bold;" outcome="catalogueMaster.xhtml" /></li>
+
+
+<li><h:link class="pull-right" value="Register" style="color:#fff; font-weight: bold;"  outcome="login" /></li>
+<!-- 
+<li ><a href="faces/index.xhtml" style="color:#fff; font-weight: bold;" >Benefits</a></li> -->
+<!-- 
+<li><a href="faces/aboutus.xhtml" style="color:#fff; font-weight: bold;" >About Us</a></li> -->
+
+
+
+
+
+</ul>
+<a style="color:#FFF; margin:5px; font-size:24px; font-weight: bold; 
+font-style: italic; text-decoration:none;" class="pull-right">
+
+
+
+
+</a>
+</div>
+</div>
+</div>
+
+
+<!-- end of top menu -->
+</h:form>
+</ui:composition>
+</h:body>
+</html>
